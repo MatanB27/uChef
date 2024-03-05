@@ -1,0 +1,5 @@
+@function vwSize($pixels, $breakpoint){
+    $result: 0;
+    $result: #{($pixels / $breakpoint) * 100};
+    @return $result + 'vw';
+}

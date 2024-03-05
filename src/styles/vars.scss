@@ -1,0 +1,47 @@
+body {
+    direction: rtl;
+}
+
+/* 
+    Colors
+*/
+
+$black: #000000;
+$white: #FFFFFF;
+
+$TeaRose: #E5C1BD;
+$Bone: #D2D0BA;
+$Sage: #B6BE9C;
+$CambridgeBlue: #7B9E87;
+$PayneGray: #5E747F;
+
+/* =================================================================
+
+/*
+    Sizes
+*/
+$mobile: 320;
+$tablet: 720;
+$desktop: 1200;
+$desktop_large: 1500;
+$desktop_max: 1900;
+
+
+$tablet_size:  720  + 'px';
+$desktop_size: 1200 + 'px';
+$desktop_size-large: 1500 + 'px';
+
+
+/*
+    fonts:
+*/
+
+$font-regular:  'Roboto-Regular';
+$font-bold:     'Roboto-Bold';
+$font-light:    'Roboto-Light';
+$font-medium:   'Roboto-Medium';
+
+/* 
+    Other vars:
+*/
+$speed: .2 + 's';

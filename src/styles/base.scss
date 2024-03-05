@@ -1,0 +1,13 @@
+$current: $mobile;
+
+@media(min-width: $tablet_size) {
+    $current: $tablet;
+}
+
+@media(min-width: $desktop_size) {
+    $current: $desktop;
+}
+
+@media(min-width: $desktop_size-large) {
+    $current: $desktop_max;
+}
