@@ -1,4 +1,9 @@
+import AuthLayout from "../layout";
 
 export default function Login() {
-    return <h1>Login</h1>
+    return (
+        <div>
+            Login
+        </div>
+    )
 }
