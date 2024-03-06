@@ -1,0 +1,25 @@
+@import '../../styles/imports.scss';
+
+
+.bg-layout {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    opacity: 0;
+    background-color: $black;
+    transition: opacity 1s ease-in-out;
+    &.is-open {
+        pointer-events: auto;
+        opacity: .7;
+        transition: opacity $speed ease-in-out;
+
+    }
+}
+@media(min-width: $tablet_size) {
+  
+}
+
+@media(min-width: $desktop_size) {
+
+}
