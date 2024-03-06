@@ -1,8 +1,32 @@
 @import '../../styles/imports.scss';
 
 .header {
-    // font-size: 50px;
-    // color: yellow;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $CambridgeBlue;
+    height: 3.5rem;
+    padding: 0 1rem 0 1rem;
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $black;
+
+        .logo-text {
+            font-family: $font-medium;
+            font-size: 1.2em;
+            padding-inline-start: .5em;
+        }
+    }
+
+    .menu {
+      
+        .menu-icon {
+            width: 2em;
+        }
+    }
 }
 
 @media (max-width: $tablet_size) {
