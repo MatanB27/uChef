@@ -8,7 +8,7 @@
     pointer-events: none;
     opacity: 0;
     background-color: $black;
-    transition: opacity 1s ease-in-out;
+    transition: opacity $speed ease-in-out;
     &.is-open {
         pointer-events: auto;
         opacity: .7;
