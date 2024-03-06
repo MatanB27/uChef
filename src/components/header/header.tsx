@@ -2,6 +2,7 @@
 
 import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "@/app/_lib/constants"
 import { usePathname } from "next/navigation"
+import styles from './header.module.scss'
 
 type HeaderProps = {
     props?: {}
@@ -16,10 +17,10 @@ export default function Header(props: HeaderProps) {
     if(!shouldHeaderExists) {
         return <></>
     }
-    
+
     return (
-    <header style={{background: 'lightblue', padding: "1rem"}}>
-        This is a Header!
-        </header>
+    <header className={styles['header']}>
+        
+    </header>
     )
 }
