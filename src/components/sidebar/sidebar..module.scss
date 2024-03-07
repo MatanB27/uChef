@@ -27,16 +27,16 @@
     z-index: 1;
     box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.5);
     transform: translateX(-100%);
-    transition: transform $speed ease-in-out;
+    transition: all $speed ease-in-out;
     
     &.is-open {
         transform: translateX(0);
-        transition: transform $speed ease-in-out;
+        transition: all $speed ease-in-out;
     }
 
     .sidebar-header {
         display: flex;
-        height: 2.9em;
+        height: 2.5em;
         justify-content: space-between;
         align-items: center;
         padding: .5em 1.5em;
@@ -54,7 +54,7 @@
         }
     }
 
-    .content {
+    .navbar {
         padding: 1em;
 
         .route {
@@ -69,7 +69,9 @@
     }
 }
 @media(min-width: $tablet_size) {
-  
+    .sidebar {
+        width: 80%;
+    }
 }
 
 @media(min-width: $desktop_size) {

@@ -20,7 +20,13 @@ export default function SideBar(props: SideBarProps) {
         closeSideBar = () => {}
     } = props
 
-
+    useEffect(() => {
+        if(isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    }, [isOpen])
     return (
         <>
             <aside className={clsx(styles['sidebar'], isOpen ? styles['is-open'] : '')}>
@@ -44,7 +50,7 @@ function Navigator() {
     const pathname = usePathname()
     const isPathActive = (currentPath: string) => pathname === currentPath
     return (
-        <nav className={styles['content']}>
+        <nav className={styles['navbar']}>
             <Link className={clsx(styles['route'], isPathActive(LOGIN_ROUTE) ? styles['active'] : '')} href={LOGIN_ROUTE}>Login</Link>
         </nav>
     )
