@@ -67,7 +67,7 @@ function Navigator(props: NavigatorProps) {
             {
                 routes.length >= 1 && routes.map((route: RouteItem) => {
                     return (
-                        <Link className={clsx(styles['route'], isPathActive(route.route) ? styles['active'] : '')} href={LOGIN_ROUTE}>{route.key}</Link>
+                        <Link key={route.key} className={clsx(styles['route'], isPathActive(route.route) ? styles['active'] : '')} href={LOGIN_ROUTE}>{route.key}</Link>
                     )
                 })
             }

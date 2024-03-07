@@ -9,10 +9,20 @@ import menuIcon from '@/assets/icons/menu.svg'
 import Link from "next/link"
 import { useState } from "react"
 import SideBar from "../sidebar/sidebar"
+import { useWindowSize } from "@/utils/window-size"
+import Seperator from "../seperator/seperator"
+import { RouteItem } from "@/types/route-item"
+import clsx from "clsx"
 
 type HeaderProps = {
     props?: {}
 }
+
+type NavDesktopProps = {
+    isActive: boolean,
+    routes: RouteItem[]
+}
+
 const headerRoutes = [
     {
         key: 'Login',
@@ -32,10 +42,11 @@ export default function Header(props: HeaderProps) {
     const [sideBarOpen, setSideBarOpen] = useState<boolean>(false)
 
     const shouldHeaderExists =  pathname && !routesWithoutHeader.includes(pathname)
-
-    const openSideBar = () => setSideBarOpen(true)
+    
+    
+     const openSideBar = () => setSideBarOpen(true)
     const closeSideBar = () => setSideBarOpen(false)
-
+    const { isDesktop } = useWindowSize()
     const headerLogo = () => {
         return (
             <Link className={styles['logo-container']} href={ROOT_ROUTE}>
@@ -55,9 +66,37 @@ export default function Header(props: HeaderProps) {
                     <img className={styles['menu-icon']} src={menuIcon.src} alt="menu"/>
                 </button>
                 {headerLogo()}
-
+                <Seperator isActive={isDesktop} width={50}/>
+                <NavDesktop isActive={isDesktop} routes={headerRoutes}/>
             </header>
             <SideBar isOpen={sideBarOpen} closeSideBar={closeSideBar} routes={headerRoutes}/>
         </>
+    )
+}
+
+function NavDesktop(props: NavDesktopProps) {
+    
+    const {
+        isActive,
+        routes
+    } = props
+
+    const pathname = usePathname()
+    const isPathActive = (currentPath: string) => pathname === currentPath
+    
+    if(!isActive) {
+        return <></>
+    }
+    
+    return (
+        <nav className={styles['navbar']}>
+            {
+                routes.length >= 1 && routes.map((route: RouteItem) => {
+                    return (
+                        <Link key={route.key} className={clsx(styles['route'], isPathActive(route.route) ? styles['active'] : '')} href={route.route}>{route.key}</Link>
+                    )
+                })
+            }        
+        </nav>
     )
 }

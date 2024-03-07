@@ -7,7 +7,7 @@
     background-color: $Bone;
     height: 3.5rem;
     padding: 0 1rem 0 1rem;
-
+    transition: all $speed ease-in-out;
     .logo-container {
         display: flex;
         align-items: center;
@@ -22,17 +22,60 @@
     }
 
     .menu {
-      
         .menu-icon {
             width: 2em;
         }
     }
 }
 
-@media (max-width: $tablet_size) {
+@media (min-width: $tablet_size) {
 
 }
 
-@media (max-width: $desktop) {
+@media (min-width: $desktop_size) {
 
+    .header {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 15rem;
+        
+        .logo-container {
+            flex-direction: column;
+             justify-content: flex-start;
+             align-items: center;
+             width: 100%;
+             margin: 2em 0;
+             
+             .icon {
+                width: 2em;
+                height: 2em;
+             }
+             .logo-text {
+                font-size: 3em;
+                padding: 0;
+                padding-top: .1em;
+             }
+        }
+        .menu {
+            display: none;
+        }
+
+        .navbar {
+            margin-top: 2.5em;
+            
+            .route {
+                display: inline-block;
+                font-family: $font-medium;
+                font-size: 18px;
+                margin-inline-start: .8em;
+                transition: all $fastSpeed ease-in-out;
+                &:hover,
+                &.active {
+                    font-family: $font-bold;
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
 }
