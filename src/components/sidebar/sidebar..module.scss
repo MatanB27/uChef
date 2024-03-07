@@ -79,4 +79,12 @@
 
 @media(min-width: $desktop_size) {
 
+    .bg-layout {
+        display: none;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
 }
