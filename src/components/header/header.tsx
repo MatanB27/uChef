@@ -7,12 +7,13 @@ import ChefHatIcon from '@/assets/icons/chef-hat.svg'
 import { ROOT_ROUTE } from "@/app/_lib/constants"
 import menuIcon from '@/assets/icons/menu.svg'
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SideBar from "../sidebar/sidebar"
-import { useWindowSize } from "@/utils/window-size"
+import { useWindowSize } from "@/hooks/window-size"
 import Seperator from "../seperator/seperator"
 import { RouteItem } from "@/types/route-item"
 import clsx from "clsx"
+import { useScrollPosition } from "@/hooks/scroll-position"
 
 type HeaderProps = {
     props?: {}
@@ -33,20 +34,33 @@ const headerRoutes = [
         route: REGISTER_ROUTE,
     }
 ]
-
+const MINIMIZE_POSITION: number = 100
 const routesWithoutHeader: string[] = [FORGET_PASSWORD_ROUTE,  LOGIN_ROUTE, REGISTER_ROUTE]
 
 export default function Header(props: HeaderProps) {
     
-    const pathname = usePathname()
     const [sideBarOpen, setSideBarOpen] = useState<boolean>(false)
+    const [miniizedHeader, setMinimizedHeader] = useState<boolean>(false)
 
+    const pathname = usePathname()
+    const { isDesktop } = useWindowSize()
+    const scrollPosition = useScrollPosition()
+    console.log('scrollPosition: ', scrollPosition);
+    
     const shouldHeaderExists =  pathname && !routesWithoutHeader.includes(pathname)
     
+    useEffect(() => {
+        if(scrollPosition >= MINIMIZE_POSITION) {
+            setMinimizedHeader(true)
+        }else {
+            setMinimizedHeader(false)
+        }
+    }, [scrollPosition])
     
-     const openSideBar = () => setSideBarOpen(true)
+
+    const openSideBar = () => setSideBarOpen(true)
     const closeSideBar = () => setSideBarOpen(false)
-    const { isDesktop } = useWindowSize()
+    
     const headerLogo = () => {
         return (
             <Link className={styles['logo-container']} href={ROOT_ROUTE}>
@@ -61,7 +75,7 @@ export default function Header(props: HeaderProps) {
 
     return (
         <>
-            <header className={styles['header']}>
+            <header className={clsx(styles['header'], miniizedHeader ? styles['minimized'] : '')}>
                 <button className={styles['menu']} onClick={openSideBar}>
                     <img className={styles['menu-icon']} src={menuIcon.src} alt="menu"/>
                 </button>
