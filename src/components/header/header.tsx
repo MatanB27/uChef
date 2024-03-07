@@ -25,8 +25,7 @@ export default function Header(props: HeaderProps) {
 
     const openSideBar = () => setSideBarOpen(true)
     const closeSideBar = () => setSideBarOpen(false)
-    console.log('sideBarOpen: ', sideBarOpen);
-    
+
     const headerLogo = () => {
         return (
             <Link className={styles['logo-container']} href={ROOT_ROUTE}>
@@ -42,11 +41,10 @@ export default function Header(props: HeaderProps) {
     return (
         <>
             <header className={styles['header']}>
-                {headerLogo()}
-
                 <button className={styles['menu']} onClick={openSideBar}>
                     <img className={styles['menu-icon']} src={menuIcon.src} alt="menu"/>
                 </button>
+                {headerLogo()}
 
             </header>
             <SideBar isOpen={sideBarOpen} closeSideBar={closeSideBar}/>

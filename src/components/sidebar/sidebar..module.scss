@@ -16,6 +16,41 @@
 
     }
 }
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    background-color: $Sage;
+    z-index: 1;
+    box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.5);
+
+    .sidebar-header {
+        display: flex;
+        height: 2.9em;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5em 1.5em;
+
+        .menu-title {
+            font-family: $font-bold;
+            font-size: 22px;
+            color: $black;
+        }
+        .close-icon {
+            .img {
+                height: 1.5em;
+                width: 1.5em;
+            }
+        }
+    }
+
+    .content {
+        padding: 1em;
+    }
+}
 @media(min-width: $tablet_size) {
   
 }
