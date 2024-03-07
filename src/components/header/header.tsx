@@ -45,7 +45,6 @@ export default function Header(props: HeaderProps) {
     const pathname = usePathname()
     const { isDesktop } = useWindowSize()
     const scrollPosition = useScrollPosition()
-    console.log('scrollPosition: ', scrollPosition);
     
     const shouldHeaderExists =  pathname && !routesWithoutHeader.includes(pathname)
     
@@ -80,7 +79,7 @@ export default function Header(props: HeaderProps) {
                     <img className={styles['menu-icon']} src={menuIcon.src} alt="menu"/>
                 </button>
                 {headerLogo()}
-                <Seperator isActive={isDesktop} width={50}/>
+                <Seperator isActive={isDesktop && !miniizedHeader} width={50}/>
                 <NavDesktop isActive={isDesktop} routes={headerRoutes}/>
             </header>
             <SideBar isOpen={sideBarOpen} closeSideBar={closeSideBar} routes={headerRoutes}/>

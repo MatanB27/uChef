@@ -46,6 +46,7 @@
         transition: all $speed ease-in-out;
 
         &.minimized {
+            flex-direction: row;
             height: 4rem;
 
             .logo-container {
@@ -62,8 +63,15 @@
 
                 .logo-text {
                     transition: all $speed ease-in-out;
-                    font-size: 2em;
+                    font-size: 1.5em;
+                    margin-inline-start: .5em;
                 }
+            }
+
+            .navbar {
+                margin: 0;
+                width: 100%;
+                text-align: right;
             }
         }
 
