@@ -1,4 +1,6 @@
-import { MouseEventHandler } from 'react'
+"use client";
+
+import { MouseEventHandler, useEffect } from 'react'
 import styles from './sidebar..module.scss'
 import clsx from 'clsx'
 import CloseIcon from '@/assets/icons/close.svg'
@@ -15,12 +17,15 @@ export default function SideBar(props: SideBarProps) {
         closeSideBar = () => {}
     } = props
 
+    useEffect(() => {
+
+    }, [])
     return (
         <>
             <aside className={clsx(styles['sidebar'], isOpen ? styles['is-open'] : '')}>
                 <div className={styles['sidebar-header']}>
                     <h1 className={styles['menu-title']}>Menu</h1>
-                    <button className={styles['close-icon']}>
+                    <button className={styles['close-icon']} onClick={closeSideBar}>
                         <img className={styles['img']} src={CloseIcon.src} alt={'close'}/>
                     </button>
                 </div>
