@@ -56,6 +56,16 @@
 
     .content {
         padding: 1em;
+
+        .route {
+            font-family: $font-medium;
+            font-size: 18px;
+
+            &.active {
+                font-family: $font-bold;
+                font-size: 22px;
+            }
+        }
     }
 }
 @media(min-width: $tablet_size) {

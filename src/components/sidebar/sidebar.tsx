@@ -5,6 +5,9 @@ import styles from './sidebar..module.scss'
 import clsx from 'clsx'
 import CloseIcon from '@/assets/icons/close.svg'
 import Seperator from '../seperator/seperator'
+import Link from 'next/link';
+import { LOGIN_ROUTE } from '@/app/_lib/constants';
+import { usePathname } from 'next/navigation';
 
 type SideBarProps = {
     isOpen: boolean,
@@ -17,9 +20,10 @@ export default function SideBar(props: SideBarProps) {
         closeSideBar = () => {}
     } = props
 
-    useEffect(() => {
+    const pathname = usePathname()
 
-    }, [])
+    const isPathActive = (currentPath: string) => pathname === currentPath
+
     return (
         <>
             <aside className={clsx(styles['sidebar'], isOpen ? styles['is-open'] : '')}>
@@ -32,8 +36,7 @@ export default function SideBar(props: SideBarProps) {
 
                 <Seperator/>
                 <nav className={styles['content']}>
-                    Navigation here
-                    {/* TODO: Add Navigator! */}
+                    <Link className={clsx(styles['route'], isPathActive(LOGIN_ROUTE) ? styles['active'] : '')} href={LOGIN_ROUTE}>Login</Link>
                 </nav>
             </aside>
             <button className={clsx(styles['bg-layout'], isOpen ? styles['is-open'] : '')} onClick={closeSideBar}/>
