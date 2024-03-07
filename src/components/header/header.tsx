@@ -13,6 +13,16 @@ import SideBar from "../sidebar/sidebar"
 type HeaderProps = {
     props?: {}
 }
+const headerRoutes = [
+    {
+        key: 'Login',
+        route: LOGIN_ROUTE,
+    },
+    {
+        key: 'Register',
+        route: REGISTER_ROUTE,
+    }
+]
 
 const routesWithoutHeader: string[] = [FORGET_PASSWORD_ROUTE,  LOGIN_ROUTE, REGISTER_ROUTE]
 
@@ -47,7 +57,7 @@ export default function Header(props: HeaderProps) {
                 {headerLogo()}
 
             </header>
-            <SideBar isOpen={sideBarOpen} closeSideBar={closeSideBar}/>
+            <SideBar isOpen={sideBarOpen} closeSideBar={closeSideBar} routes={headerRoutes}/>
         </>
     )
 }

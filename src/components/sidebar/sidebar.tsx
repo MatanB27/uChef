@@ -8,16 +8,23 @@ import Seperator from '../seperator/seperator'
 import Link from 'next/link';
 import { LOGIN_ROUTE } from '@/app/_lib/constants';
 import { usePathname } from 'next/navigation';
+import { RouteItem } from "@/types/route-item"
 
 type SideBarProps = {
     isOpen: boolean,
     closeSideBar: MouseEventHandler<HTMLButtonElement>,
+    routes: RouteItem[],
+}
+
+type NavigatorProps = {
+    routes: RouteItem[]
 }
 
 export default function SideBar(props: SideBarProps) {
     const {
         isOpen = false,
-        closeSideBar = () => {}
+        closeSideBar = () => {},
+        routes = [],
     } = props
 
     useEffect(() => {
@@ -27,6 +34,7 @@ export default function SideBar(props: SideBarProps) {
             document.body.style.overflow = 'unset';
         }
     }, [isOpen])
+
     return (
         <>
             <aside className={clsx(styles['sidebar'], isOpen ? styles['is-open'] : '')}>
@@ -38,7 +46,7 @@ export default function SideBar(props: SideBarProps) {
                 </div>
 
                 <Seperator/>
-                <Navigator/>
+                <Navigator routes={routes}/>
                 
             </aside>
             <button className={clsx(styles['bg-layout'], isOpen ? styles['is-open'] : '')} onClick={closeSideBar}/>
@@ -46,12 +54,23 @@ export default function SideBar(props: SideBarProps) {
     )
 }
 
-function Navigator() {
+function Navigator(props: NavigatorProps) {
+    const {
+        routes,
+    } = props
+
     const pathname = usePathname()
     const isPathActive = (currentPath: string) => pathname === currentPath
+
     return (
         <nav className={styles['navbar']}>
-            <Link className={clsx(styles['route'], isPathActive(LOGIN_ROUTE) ? styles['active'] : '')} href={LOGIN_ROUTE}>Login</Link>
+            {
+                routes.length >= 1 && routes.map((route: RouteItem) => {
+                    return (
+                        <Link className={clsx(styles['route'], isPathActive(route.route) ? styles['active'] : '')} href={LOGIN_ROUTE}>{route.key}</Link>
+                    )
+                })
+            }
         </nav>
     )
 } 
