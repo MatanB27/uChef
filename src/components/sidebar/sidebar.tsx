@@ -20,9 +20,6 @@ export default function SideBar(props: SideBarProps) {
         closeSideBar = () => {}
     } = props
 
-    const pathname = usePathname()
-
-    const isPathActive = (currentPath: string) => pathname === currentPath
 
     return (
         <>
@@ -35,11 +32,20 @@ export default function SideBar(props: SideBarProps) {
                 </div>
 
                 <Seperator/>
-                <nav className={styles['content']}>
-                    <Link className={clsx(styles['route'], isPathActive(LOGIN_ROUTE) ? styles['active'] : '')} href={LOGIN_ROUTE}>Login</Link>
-                </nav>
+                <Navigator/>
+                
             </aside>
             <button className={clsx(styles['bg-layout'], isOpen ? styles['is-open'] : '')} onClick={closeSideBar}/>
         </>
     )
 }
+
+function Navigator() {
+    const pathname = usePathname()
+    const isPathActive = (currentPath: string) => pathname === currentPath
+    return (
+        <nav className={styles['content']}>
+            <Link className={clsx(styles['route'], isPathActive(LOGIN_ROUTE) ? styles['active'] : '')} href={LOGIN_ROUTE}>Login</Link>
+        </nav>
+    )
+} 
