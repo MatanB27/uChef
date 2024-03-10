@@ -42,65 +42,35 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        height: 15rem;
-        transition: all $medSpeed ease-in-out;
-        
-        &.minimized {
-            flex-direction: row;
-            height: 4rem;
-
-            .logo-container {
-                flex-direction: row;
-                align-items: center;
-                height: 100%;
-                margin: 0;
-    
-                .icon {
-                    height: 1.5em;
-                    width: 1.5em;
-                }
-
-                .logo-text {
-                    font-size: 1.5em;
-                    margin-inline-start: .5em;
-                }
-            }
-
-            .navbar {
-                margin: 0;
-                width: 100%;
-                text-align: right;
-            }
-        }
-
+        transition: all $fastSpeed ease-in-out;
+        flex-direction: row;
+        height: 7rem;
+        padding-inline: 3em;
         .logo-container {
-            flex-direction: column;
-             justify-content: flex-start;
-             align-items: center;
-             width: 100%;
-             margin: 2em 0;
-             
-             .icon {
-                width: 2em;
-                height: 2em;
-             }
-             .logo-text {
-                font-size: 3em;
-                padding: 0;
-                padding-top: .1em;
-             }
+            flex-direction: row;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            .icon {
+                height: 3em;
+                width: 3em;
+                transition: all $fastSpeed ease-in-out;
+            }
+            .logo-text {
+                font-family: $font-bold;
+                font-size: 2.5em;
+                padding-inline-start: .5em;
+                transition: all $fastSpeed ease-in-out;
+            }
         }
-        .menu {
-            display: none;
-        }
-
         .navbar {
-            margin-top: 2.5em;
-            
+            margin: 0;
+            width: 100%;
+            text-align: right;
             .route {
                 display: inline-block;
                 font-family: $font-medium;
-                font-size: 18px;
+                font-size: 1.5em;
                 margin-inline-start: .8em;
                 transition: all $fastSpeed ease-in-out;
                 &:hover,
@@ -108,6 +78,28 @@
                     font-family: $font-bold;
                     transform: scale(1.2);
                 }
+            }
+        }
+        .menu {
+            display: none;
+        }
+        &.minimized {
+            
+            height: 4rem;
+
+            .logo-container {
+
+                .icon {
+                    height: 1.5em;
+                    width: 1.5em;
+                }
+                .logo-text {
+                    font-size: 1.5em;
+                }
+            }
+
+            .navbar {
+                font-size: .7em;
             }
         }
     }
