@@ -1,0 +1,105 @@
+@import '../../styles/imports.scss';
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: $font-regular;
+    height: 15rem;
+    background-color: $PayneGray;
+    padding: 3em 3em 1em 3em;
+
+    .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        .icon {
+            height: 1.8em;
+            width: 1.8em;
+        }
+
+        .logo-text{ 
+            font-family: $font-bold;
+            font-size: 2em;
+        }
+
+        .desc {
+            margin-top: .8em;
+            font-family: $font-medium;
+            letter-spacing: 1.8px;
+        }
+    }
+    
+    .nav {
+        font-family: $font-medium;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            font-family: $font-bold;
+            font-size: 1.4em;
+            margin-bottom: .5em;
+        }
+
+        .route {
+            margin-inline-start: .4em;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .additional {
+        font-family: $font-medium;
+        font-size: 1.5em;
+    }
+}
+
+@media(min-width: $desktop_size) {
+    .footer {
+        height: 20rem;
+        padding: 4em 4em 1.5em 4em;
+    
+        .logo-container {
+            .icon {
+                height: 2.2em;
+                width: 2.2em;
+            }
+    
+            .logo-text{ 
+                font-size: 2.4em;
+                margin-top: .3em;
+            }
+    
+            .desc {
+                margin-top: 1em;
+                letter-spacing: 1.8px;
+            }
+        }
+        
+        .nav {
+            .title {
+                font-size: 1.4em;
+                margin-bottom: .5em;
+            }
+    
+            .route {
+                margin-inline-start: .4em;
+    
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    
+        .additional {
+            font-family: $font-medium;
+            font-size: 1.5em;
+        }
+    }
+}

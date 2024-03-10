@@ -76,7 +76,9 @@
                 &:hover,
                 &.active {
                     font-family: $font-bold;
-                    transform: scale(1.2);
+                }
+                &.active {
+                    text-decoration: underline;
                 }
             }
         }
