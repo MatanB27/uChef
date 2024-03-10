@@ -1,5 +1,8 @@
+import clsx from "clsx"
+import styles from './separator.module.scss';
 
 type SeperatorProps = {
+    className?: string,
     width?: number,
     isActive?: boolean
 }
@@ -8,15 +11,13 @@ export default function Seperator(props : SeperatorProps) {
 
     const {
         width = 100,
-        isActive = true
+        isActive = true,
+        className = ''
     } = props
 
     const widthStyle = width + '%' 
     const SeperatorStyle = {
-        backgroundColor: 'black',
-        height: '1px',
         width: widthStyle,
-        opacity: .2
     }
 
     if(!isActive) {
@@ -24,6 +25,6 @@ export default function Seperator(props : SeperatorProps) {
     }
     
     return (
-        <div style={SeperatorStyle}/>
+        <div className={clsx(className, styles['separator'])}style={SeperatorStyle}/>
     )
 }

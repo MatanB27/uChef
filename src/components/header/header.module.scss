@@ -43,8 +43,8 @@
         justify-content: flex-start;
         align-items: center;
         height: 15rem;
-        transition: all $speed ease-in-out;
-
+        transition: all $medSpeed ease-in-out;
+        
         &.minimized {
             flex-direction: row;
             height: 4rem;
@@ -54,15 +54,13 @@
                 align-items: center;
                 height: 100%;
                 margin: 0;
-                transition: all $speed ease-in-out;
+    
                 .icon {
                     height: 1.5em;
                     width: 1.5em;
-                    transition: all $speed ease-in-out;
                 }
 
                 .logo-text {
-                    transition: all $speed ease-in-out;
                     font-size: 1.5em;
                     margin-inline-start: .5em;
                 }
