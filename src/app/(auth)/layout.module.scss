@@ -1,0 +1,47 @@
+@import '../../styles/imports.scss';
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: hidden;
+    .first-circle {
+        position: absolute;
+        height: 40rem;
+        width: 40rem;
+        background-color: $Bone;
+        border-radius: 100%;
+        transform: translate(-10rem, -5rem);
+        z-index: -2;
+    }
+    
+    .second-circle {
+        position: absolute;
+        height: 25rem;
+        width: 25rem;
+        background-color: $PayneGray;
+        border-radius: 100%;
+        transform: translate(15rem, -1rem);
+        z-index: -1;
+    }
+    
+    
+}
+// .bottom-color {
+//     position: absolute;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     width: 100%;
+//     background-color: $Bone;
+//     height: 3.5rem;
+//     border-top-left-radius: 1rem;
+//     border-top-right-radius: 1rem;
+// }
+@media(min-width: $tablet_size) {
+  
+}
+
+@media(min-width: $desktop_size) {
+
+}

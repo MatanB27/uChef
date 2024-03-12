@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-
+import styles from './layout.module.scss';
 export const metadata: Metadata = {
   title: 'Login',
 }
@@ -14,6 +14,13 @@ export default function AuthLayout(props: AuthLayoutProps) {
   } = props
 
   return (
-    <div>{children}</div>
+    <div className={styles['layout']}>
+      <div className={styles['first-circle']}/>
+      <div className={styles['second-circle']}/>
+      
+      {children}
+
+      <div className={styles['bottom-color']}/>
+    </div>
   )
 }
