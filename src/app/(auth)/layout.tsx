@@ -15,12 +15,14 @@ export default function AuthLayout(props: AuthLayoutProps) {
 
   return (
     <div className={styles['layout']}>
-      <div className={styles['first-circle']}/>
-      <div className={styles['second-circle']}/>
-      
-      {children}
 
-      <div className={styles['bottom-color']}/>
+      <div className={styles['circle-one']}/>
+
+      <div className={styles['content']}>
+        {children}
+      </div>
+
+      <div className={styles['bottom-background']}/>
     </div>
   )
 }

@@ -1,9 +1,12 @@
-import AuthLayout from "../layout";
+import styles from './page.module.scss'
 
-export default function Login() {
+type LoginProps = {
+
+} 
+export default function Login(props: LoginProps) {
     return (
-        <div>
+        <main className={styles['login-container']}>
             Login
-        </div>
+        </main>
     )
 }

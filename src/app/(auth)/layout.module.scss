@@ -1,31 +1,41 @@
 @import '../../styles/imports.scss';
-
+@keyframes wave {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
 .layout {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    overflow-y: hidden;
-    .first-circle {
+    overflow: hidden;
+
+    .circle-one {
         position: absolute;
-        height: 40rem;
-        width: 40rem;
+        bottom: 32rem;
+        right: 12rem;
         background-color: $Bone;
+        height: 30rem;
+        width: 30rem;
         border-radius: 100%;
-        transform: translate(-10rem, -5rem);
-        z-index: -2;
-    }
-    
-    .second-circle {
-        position: absolute;
-        height: 25rem;
-        width: 25rem;
-        background-color: $PayneGray;
-        border-radius: 100%;
-        transform: translate(15rem, -1rem);
         z-index: -1;
     }
     
-    
+    .bottom-background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: $CambridgeBlue;
+        height: 3.5rem;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
 }
 // .bottom-color {
 //     position: absolute;
