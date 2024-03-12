@@ -1,53 +1,25 @@
 @import '../../styles/imports.scss';
-@keyframes wave {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 100% 0;
-    }
-  }
+
 .layout {
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-
-    .circle-one {
-        position: absolute;
-        bottom: 32rem;
-        right: 12rem;
-        background-color: $Bone;
-        height: 30rem;
-        width: 30rem;
-        border-radius: 100%;
-        z-index: -1;
-    }
-    
+   
     .bottom-background {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
         width: 100%;
-        background-color: $CambridgeBlue;
+        background-color: $Bone;
         height: 3.5rem;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
     }
 
 }
-// .bottom-color {
-//     position: absolute;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     width: 100%;
-//     background-color: $Bone;
-//     height: 3.5rem;
-//     border-top-left-radius: 1rem;
-//     border-top-right-radius: 1rem;
-// }
+
 @media(min-width: $tablet_size) {
   
 }

@@ -16,8 +16,6 @@ export default function AuthLayout(props: AuthLayoutProps) {
   return (
     <div className={styles['layout']}>
 
-      <div className={styles['circle-one']}/>
-
       <div className={styles['content']}>
         {children}
       </div>
