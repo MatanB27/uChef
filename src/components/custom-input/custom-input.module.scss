@@ -1,0 +1,31 @@
+@import '../../styles/imports.scss';
+
+.input {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+
+    label {
+        font-family: $font-regular;
+        padding: .5em 0;
+        text-align: left;
+    }
+
+    input {
+        border: 0;
+        border-bottom: 1px solid black;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+@media(min-width: $tablet_size) {
+  
+}
+
+@media(min-width: $desktop_size) {
+
+}
+

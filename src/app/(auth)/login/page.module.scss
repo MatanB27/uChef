@@ -1,7 +1,27 @@
 @import '../../../styles/imports.scss';
 
 .login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    padding: 3rem 2rem;
+    text-align: center;
+
+    .login-img-container {
+        img {
+            width: 80%;
+            height: 80%;
+        }
+    }
+    .form {
+
+        .title {
+            font-family: $font-bold;
+            font-size: 2.5em;
+        }
+    }
 }
 
 @media(min-width: $tablet_size) {
