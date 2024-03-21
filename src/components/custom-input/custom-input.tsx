@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import styles from './custom-input.module.scss';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FormEvent } from 'react';
 
 type CustomInputProps = {
     className?: string;
@@ -10,7 +10,7 @@ type CustomInputProps = {
     value: string;
     placeholder: string;
     name: string,
-    onChange?: (e?: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange: (event: ChangeEvent<HTMLInputElement>, name: string) => void,
 };
 
 export function CustomInput(props: CustomInputProps) {
@@ -24,8 +24,9 @@ export function CustomInput(props: CustomInputProps) {
         onChange = () => {},
     } = props;
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        onChange(event);
+    const handleChange = (e: FormEvent<HTMLInputElement>) => {
+        const event = e as React.ChangeEvent<HTMLInputElement>;
+        typeof onChange === 'function' && onChange(event, name)
     };
 
     return (

@@ -44,7 +44,7 @@ export default function Login(props: LoginProps) {
                     value={''}
                     placeholder={'Email'}
                     autoFocus={true}
-                    onChange={() => {console.log('xd'); }}
+                    onChange={handleOnChange}
                 />
 
                 <CustomInput
