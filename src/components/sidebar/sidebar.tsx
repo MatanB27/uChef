@@ -8,7 +8,7 @@ import Seperator from '../seperator/seperator'
 import Link from 'next/link';
 import { LOGIN_ROUTE } from '@/app/_lib/constants';
 import { usePathname } from 'next/navigation';
-import { RouteItem } from "@/types/route-item"
+import { RouteItem } from "@/models/route-item"
 
 type SideBarProps = {
     isOpen: boolean,

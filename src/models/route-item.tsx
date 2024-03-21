@@ -1,4 +1,4 @@
-export type RouteItem = {
+export interface RouteItem {
     key: string,
     route: string
 }

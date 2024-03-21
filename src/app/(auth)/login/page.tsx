@@ -3,17 +3,35 @@
 import { CustomInput } from '@/components/custom-input/custom-input'
 import styles from './page.module.scss'
 import LoginIcon from '@/assets/icons/login.svg'
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
+import { FormType } from '@/models/form-item'
 type LoginProps = {
 
 } 
 export default function Login(props: LoginProps) {
 
+    const [form, setForm] = useState<FormType>({
+        email: {
+            name: 'email',
+            value: '',
+            error: false,
+            rules: [],
+        },
+        password: {
+            name: 'password',
+            value: '',
+            error: false,
+            rules: [],
+        }    
+    })
+
+    const [isFirstTry, setIsFirstTry] = useState<boolean>(false)
+
     const handleOnChange = (e: FormEvent<HTMLInputElement>) => {
         console.log(e.target);
     }
     return (
-        <main className={styles['login-container']}>
+        <div className={styles['login-container']}>
             <div className={styles['login-img-container']}>
                 <img src={LoginIcon.src} alt={'login'}/>
             </div>
@@ -22,6 +40,7 @@ export default function Login(props: LoginProps) {
                 <h1 className={styles['title']}>Login</h1>
                 <CustomInput
                     className={styles['custom-input']}
+                    name={'email'}
                     value={''}
                     placeholder={'Email'}
                     autoFocus={true}
@@ -30,6 +49,7 @@ export default function Login(props: LoginProps) {
 
                 <CustomInput
                     className={styles['custom-input']}
+                    name={'password'}
                     value={''}
                     placeholder={'Password'}
                     autoFocus={true}
@@ -37,6 +57,6 @@ export default function Login(props: LoginProps) {
                     }}
                 />
             </form>
-        </main>
+        </div>
     )
 }

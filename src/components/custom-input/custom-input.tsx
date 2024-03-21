@@ -9,6 +9,7 @@ type CustomInputProps = {
     autoFocus?: boolean,
     value: string;
     placeholder: string;
+    name: string,
     onChange?: (e?: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
@@ -19,6 +20,7 @@ export function CustomInput(props: CustomInputProps) {
         value = '',
         placeholder = '',
         autoFocus = false,
+        name = '',
         onChange = () => {},
     } = props;
 
@@ -33,6 +35,7 @@ export function CustomInput(props: CustomInputProps) {
                 autoFocus={autoFocus} 
                 value={value}
                 onChange={handleChange}
+                name={name}
             />
         </div>
     );

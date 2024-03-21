@@ -14,13 +14,12 @@ export default function AuthLayout(props: AuthLayoutProps) {
   } = props
 
   return (
-    <div className={styles['layout']}>
-
+    <main className={styles['layout']}>
       <div className={styles['content']}>
         {children}
       </div>
 
       <div className={styles['bottom-background']}/>
-    </div>
+    </main>
   )
 }

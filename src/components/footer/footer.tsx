@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import styles from './footer.module.scss';
 import ChefHatIcon from '@/assets/icons/chef-hat.svg'
 import Link from "next/link";
-import { RouteItem } from "@/types/route-item";
+import { RouteItem } from "@/models/route-item";
 import clsx from "clsx";
 
 type FooterProps = {

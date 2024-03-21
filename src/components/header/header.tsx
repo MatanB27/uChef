@@ -10,7 +10,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import SideBar from "../sidebar/sidebar"
 import { useWindowSize } from "@/hooks/window-size"
-import { RouteItem } from "@/types/route-item"
+import { RouteItem } from "@/models/route-item"
 import clsx from "clsx"
 import { useScrollPosition } from "@/hooks/scroll-position"
 
