@@ -5,6 +5,7 @@ import styles from './page.module.scss'
 import LoginIcon from '@/assets/icons/login.svg'
 import { FormEvent, useState } from 'react'
 import { FormType } from '@/models/form-item'
+
 type LoginProps = {
 
 } 
@@ -27,9 +28,15 @@ export default function Login(props: LoginProps) {
 
     const [isFirstTry, setIsFirstTry] = useState<boolean>(false)
 
-    const handleOnChange = (e: FormEvent<HTMLInputElement>) => {
-        console.log(e.target);
+    const handleOnChange = (e: FormEvent<HTMLInputElement>, name: string) => {
+        const target = e.target as HTMLInputElement
+        const newVal = target.value
+        
+        const newState = {...form}
+        newState[name].value = newVal // Try to understand why its giving me error
+        setForm(newState)
     }
+    
     return (
         <div className={styles['login-container']}>
             <div className={styles['login-img-container']}>
@@ -40,8 +47,8 @@ export default function Login(props: LoginProps) {
                 <h1 className={styles['title']}>Login</h1>
                 <CustomInput
                     className={styles['custom-input']}
-                    name={'email'}
-                    value={''}
+                    name={form.email?.name || ''}
+                    value={form.email?.value || ''}
                     placeholder={'Email'}
                     autoFocus={true}
                     onChange={handleOnChange}
@@ -49,12 +56,11 @@ export default function Login(props: LoginProps) {
 
                 <CustomInput
                     className={styles['custom-input']}
-                    name={'password'}
-                    value={''}
+                    name={form.password?.name || ''}
+                    value={form.password?.value || ''}
                     placeholder={'Password'}
                     autoFocus={true}
-                    onChange={() => {console.log('xd');
-                    }}
+                    onChange={handleOnChange}
                 />
             </form>
         </div>
