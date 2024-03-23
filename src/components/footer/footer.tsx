@@ -1,6 +1,6 @@
 "use client";
 
-import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, ROOT_ROUTE } from "@/app/_lib/constants"
+import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, ROOT_ROUTE } from "@/app/_lib/constants/routes-constants"
 import { usePathname } from "next/navigation"
 import styles from './footer.module.scss';
 import ChefHatIcon from '@/assets/icons/chef-hat.svg'

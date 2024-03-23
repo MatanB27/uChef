@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LOGIN_ROUTE } from "./_lib/constants"; 
+import { LOGIN_ROUTE } from "./_lib/constants/routes-constants"; 
 
 export default function Home() {
     //TODO: remove the style when finish
