@@ -1,4 +1,4 @@
-interface FormField {
+export interface FormField {
     name: string,
     value: string,
     error: boolean,
@@ -6,7 +6,7 @@ interface FormField {
 }
 
 export interface FormType {
-    email?: FormField ,
-    password?: FormField , 
+    email?: FormField,
+    password?: FormField, 
 } 
 

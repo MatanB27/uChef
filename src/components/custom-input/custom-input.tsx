@@ -10,6 +10,7 @@ type CustomInputProps = {
     value: string;
     placeholder: string;
     name: string,
+    type?: string,
     onChange: (event: ChangeEvent<HTMLInputElement>, name: string) => void,
 };
 
@@ -22,6 +23,7 @@ export function CustomInput(props: CustomInputProps) {
         autoFocus = false,
         name = '',
         onChange = () => {},
+        type = 'text'
     } = props;
 
     const handleChange = (e: FormEvent<HTMLInputElement>) => {
@@ -37,6 +39,7 @@ export function CustomInput(props: CustomInputProps) {
                 value={value}
                 onChange={handleChange}
                 name={name}
+                type={type}
             />
         </div>
     );

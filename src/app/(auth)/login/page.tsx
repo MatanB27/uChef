@@ -4,7 +4,7 @@ import { CustomInput } from '@/components/custom-input/custom-input'
 import styles from './page.module.scss'
 import LoginIcon from '@/assets/icons/login.svg'
 import { FormEvent, useState } from 'react'
-import { FormType } from '@/models/form-item'
+import { FormType, FormField } from '@/models/form-item'
 
 type LoginProps = {
 
@@ -32,9 +32,15 @@ export default function Login(props: LoginProps) {
         const target = e.target as HTMLInputElement
         const newVal = target.value
         
-        const newState = {...form}
-        newState[name].value = newVal // Try to understand why its giving me error
+        const newState: FormType = { ...form };
+        (newState[name as keyof FormType] as FormField).value = newVal;
+        
         setForm(newState)
+    }
+
+    const onSubmit = () => {
+        console.log('submitted...');
+        
     }
     
     return (
@@ -59,6 +65,7 @@ export default function Login(props: LoginProps) {
                     name={form.password?.name || ''}
                     value={form.password?.value || ''}
                     placeholder={'Password'}
+                    type={'password'}
                     autoFocus={true}
                     onChange={handleOnChange}
                 />
