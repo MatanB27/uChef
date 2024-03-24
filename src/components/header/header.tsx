@@ -1,10 +1,10 @@
 "use client"
 
-import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "@/app/_lib/constants/routes-constants"
+import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "@/utils/constants/routes-constants"
 import { usePathname } from "next/navigation"
 import styles from './header.module.scss'
 import ChefHatIcon from '@/assets/icons/chef-hat.svg'
-import { ROOT_ROUTE } from "@/app/_lib/constants/routes-constants"
+import { ROOT_ROUTE } from "@/utils/constants/routes-constants"
 import menuIcon from '@/assets/icons/menu.svg'
 import Link from "next/link"
 import { useEffect, useState } from "react"

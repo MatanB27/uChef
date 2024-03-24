@@ -7,7 +7,7 @@ import { FormEvent, useState } from 'react'
 import { FormType, FormField } from '@/models/form-item'
 import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
-import { REGISTER_ROUTE } from '@/app/_lib/constants/routes-constants'
+import { REGISTER_ROUTE } from '@/utils/constants/routes-constants'
 
 type LoginProps = {
 
@@ -56,26 +56,27 @@ export default function Login(props: LoginProps) {
 
             <form className={styles['form']}>
                 <h1 className={styles['title']}>Login</h1>
-                <CustomInput
-                    className={styles['custom-input']}
-                    name={form.email?.name || ''}
-                    value={form.email?.value || ''}
-                    placeholder={'Email'}
-                    type={'email'}
-                    autoFocus={true}
-                    onChange={handleOnChange}
-                />
-                {/* TODO: find a way to not autofill password  */}
-                <CustomInput
-                    className={styles['custom-input']}
-                    name={form.password?.name || ''}
-                    value={form.password?.value || ''}
-                    placeholder={'Password'}
-                    type={'password'}
-                    autoFocus={true}
-                    onChange={handleOnChange}
-                />
-
+                <div className={styles['inputs-container']}>
+                    <CustomInput
+                        className={styles['custom-input']}
+                        name={form.email?.name || ''}
+                        value={form.email?.value || ''}
+                        placeholder={'Email'}
+                        type={'email'}
+                        autoFocus={true}
+                        onChange={handleOnChange}
+                    />
+                    {/* TODO: find a way to not autofill password  */}
+                    <CustomInput
+                        className={styles['custom-input']}
+                        name={form.password?.name || ''}
+                        value={form.password?.value || ''}
+                        placeholder={'Password'}
+                        type={'password'}
+                        autoFocus={true}
+                        onChange={handleOnChange}
+                    />
+                </div>
                 <CustomButton
                     className={styles['custom-btn']}
                     text={'SUBMIT'}

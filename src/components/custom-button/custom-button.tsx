@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import styles from './custom-button.module.scss'
-import { BUTTON_BUTTON, BUTTON_RESET, BUTTON_SUBMIT } from '@/app/_lib/constants/button-types'
+import { BUTTON_BUTTON, BUTTON_RESET, BUTTON_SUBMIT } from '@/utils/constants/button-types'
 
 type CustomButtonProps = {
     className: string,
