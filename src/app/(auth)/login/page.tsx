@@ -18,14 +18,14 @@ export default function Login(props: LoginProps) {
         email: {
             name: 'email',
             value: '',
-            error: false,
-            rules: [],
+            error: '',
+            rules: ['email', 'not_empty'],
         },
         password: {
             name: 'password',
             value: '',
-            error: false,
-            rules: [],
+            error: '',
+            rules: ['not_empty', 'password'],
         }    
     })
 
@@ -61,12 +61,12 @@ export default function Login(props: LoginProps) {
                         className={styles['custom-input']}
                         name={form.email?.name || ''}
                         value={form.email?.value || ''}
+                        error={form.email?.error || ''}
                         placeholder={'Email'}
                         type={'email'}
                         autoFocus={true}
                         onChange={handleOnChange}
                     />
-                    {/* TODO: find a way to not autofill password  */}
                     <CustomInput
                         className={styles['custom-input']}
                         name={form.password?.name || ''}

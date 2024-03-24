@@ -3,15 +3,17 @@
 import clsx from 'clsx';
 import styles from './custom-input.module.scss';
 import { ChangeEvent, FormEvent } from 'react';
+import { OFF, ON } from '@/utils/autocomplete-types';
 
 type CustomInputProps = {
     className?: string;
     autoFocus?: boolean,
+    type?: string,
+    autoComplete?: typeof ON | typeof OFF, 
     value: string;
     placeholder: string;
     name: string,
-    type?: string,
-    autoComplete?: 'off' | 'on', 
+    error:string,
     onChange: (event: ChangeEvent<HTMLInputElement>, name: string) => void,
 };
 
@@ -25,7 +27,7 @@ export function CustomInput(props: CustomInputProps) {
         name = '',
         onChange = () => {},
         type = 'text',
-        autoComplete = 'off'
+        autoComplete = OFF
     } = props;
 
     const handleChange = (e: FormEvent<HTMLInputElement>) => {
@@ -42,7 +44,7 @@ export function CustomInput(props: CustomInputProps) {
                 onChange={handleChange}
                 name={name}
                 type={type}
-                autoComplete={'off'}
+                autoComplete={autoComplete}
             />
         </div>
     );
