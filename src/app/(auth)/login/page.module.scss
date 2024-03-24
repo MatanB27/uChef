@@ -6,9 +6,9 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding: 3rem 2rem;
+    padding: 1rem 2rem;
     text-align: center;
-
+    
     .login-img-container {
         img {
             width: 80%;
@@ -28,6 +28,7 @@
 
         .subtext {
             font-family: $font-regular;
+            font-size: .8em;
             margin-top: 1em;
         }
     }
@@ -56,6 +57,12 @@
         }
         .form {
          
+            .title {
+                font-size: 2em;
+            }
+            .subtext {
+                font-size: .9em;
+            }
         }
     }
 }
