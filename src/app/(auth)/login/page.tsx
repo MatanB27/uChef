@@ -71,6 +71,7 @@ export default function Login(props: LoginProps) {
                         className={styles['custom-input']}
                         name={form.password?.name || ''}
                         value={form.password?.value || ''}
+                        error={form.password?.error || ''}
                         placeholder={'Password'}
                         type={'password'}
                         autoFocus={true}

@@ -27,6 +27,7 @@ export function CustomInput(props: CustomInputProps) {
         name = '',
         onChange = () => {},
         type = 'text',
+        error = '',
         autoComplete = OFF
     } = props;
 
@@ -46,6 +47,11 @@ export function CustomInput(props: CustomInputProps) {
                 type={type}
                 autoComplete={autoComplete}
             />
+            {
+                error.length > 0 && (
+                    <span className={styles['error']}>{error}</span>
+                )
+            }
         </div>
     );
 }

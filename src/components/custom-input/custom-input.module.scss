@@ -23,6 +23,14 @@
             outline: none;
         }
     }
+
+    .error {
+        font-family: $font-medium;
+        font-size: .8em;
+        margin-top: .5em;
+        text-align: left;
+        color: red;
+    }
 }
 @media(min-width: $tablet_size) {
   
