@@ -6,7 +6,6 @@ export interface FormField {
 }
 
 export interface FormType {
-    email?: FormField,
-    password?: FormField, 
-} 
+    [key: string]: FormField;
+}
 

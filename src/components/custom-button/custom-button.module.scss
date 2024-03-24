@@ -1,6 +1,14 @@
 @import '../../styles/imports.scss';
 
 
+.btn-container {
+    font-family: $font-medium;
+    background-color: $CambridgeBlue;
+    padding: 1em 7em;
+    letter-spacing: 1.2px;
+    border-radius: 8px;
+    color: $white;
+}
 @media(min-width: $tablet_size) {
   
 }

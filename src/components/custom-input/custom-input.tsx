@@ -11,6 +11,7 @@ type CustomInputProps = {
     placeholder: string;
     name: string,
     type?: string,
+    autoComplete?: 'off' | 'on', 
     onChange: (event: ChangeEvent<HTMLInputElement>, name: string) => void,
 };
 
@@ -23,7 +24,8 @@ export function CustomInput(props: CustomInputProps) {
         autoFocus = false,
         name = '',
         onChange = () => {},
-        type = 'text'
+        type = 'text',
+        autoComplete = 'off'
     } = props;
 
     const handleChange = (e: FormEvent<HTMLInputElement>) => {
@@ -40,6 +42,7 @@ export function CustomInput(props: CustomInputProps) {
                 onChange={handleChange}
                 name={name}
                 type={type}
+                autoComplete={'off'}
             />
         </div>
     );

@@ -6,6 +6,8 @@ import LoginIcon from '@/assets/icons/login.svg'
 import { FormEvent, useState } from 'react'
 import { FormType, FormField } from '@/models/form-item'
 import CustomButton from '@/components/custom-button/custom-button'
+import Link from 'next/link'
+import { REGISTER_ROUTE } from '@/app/_lib/constants/routes-constants'
 
 type LoginProps = {
 
@@ -34,13 +36,14 @@ export default function Login(props: LoginProps) {
         const newVal = target.value
         
         const newState: FormType = { ...form };
-        (newState[name as keyof FormType] as FormField).value = newVal;
+        (newState[name]).value = newVal;
         
         setForm(newState)
     }
 
     const onSubmit = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
+        // TODO: finish... and also add validation rules
         console.log('submitted...');
         
     }
@@ -58,10 +61,11 @@ export default function Login(props: LoginProps) {
                     name={form.email?.name || ''}
                     value={form.email?.value || ''}
                     placeholder={'Email'}
+                    type={'email'}
                     autoFocus={true}
                     onChange={handleOnChange}
                 />
-
+                {/* TODO: find a way to not autofill password  */}
                 <CustomInput
                     className={styles['custom-input']}
                     name={form.password?.name || ''}
@@ -73,11 +77,13 @@ export default function Login(props: LoginProps) {
                 />
 
                 <CustomButton
-                    className={'custom-btn'}
-                    text={'Submit'}
+                    className={styles['custom-btn']}
+                    text={'SUBMIT'}
                     type={'submit'}
                     onClick={onSubmit}
                 />
+
+                <p className={styles['subtext']}>Doesn't have account? <Link style={{textDecoration: 'underline'}} href={REGISTER_ROUTE}>Click Here</Link> to register</p>
             </form>
         </div>
     )

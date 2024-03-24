@@ -9,6 +9,7 @@ type CustomButtonProps = {
     onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
 }
 
+// TODO: make it animated
 export default function CustomButton(props: CustomButtonProps) {
 
     const {
