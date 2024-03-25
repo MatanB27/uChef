@@ -8,6 +8,7 @@ import { FormType, FormField } from '@/models/form-item'
 import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
 import { REGISTER_ROUTE } from '@/utils/constants/routes-constants'
+import Validate from '@/utils/validation'
 
 type LoginProps = {
 
@@ -19,12 +20,14 @@ export default function Login(props: LoginProps) {
             name: 'email',
             value: '',
             error: '',
+            valid: false,
             rules: ['email', 'not_empty'],
         },
         password: {
             name: 'password',
             value: '',
             error: '',
+            valid: false,
             rules: ['not_empty', 'password'],
         }    
     })
@@ -43,8 +46,26 @@ export default function Login(props: LoginProps) {
 
     const onSubmit = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
-        // TODO: finish... and also add validation rules
-        console.log('submitted...');
+        setIsFirstTry(true)
+
+        const newState = {...form}
+        let isValid = true;
+        for (const key in form) {
+            let validationObj = Validate(newState[key].rules, newState[key].value)
+            newState[key].valid = validationObj.isValid
+            newState[key].error = validationObj.msg
+
+            if(!newState[key].valid) {
+                isValid = false
+            }
+        }
+
+        setForm(newState)
+
+        if(isValid) {
+            console.log('validd....!!! API CALL HERE');
+            
+        }
         
     }
     

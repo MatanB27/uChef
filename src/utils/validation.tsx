@@ -1,13 +1,9 @@
-interface RuleValidation {
-    [key: string]: string;
-}
-
 interface FieldValidation {
 valid: (val: string) => boolean;
 msg: string;
 }
 
-export default function Validate(rules: RuleValidation, value: string): { isValid: boolean; msg: string } {
+export default function Validate(rules: string[], value: string): { isValid: boolean; msg: string } {
     const Validation: { [key: string]: FieldValidation } = {
       not_empty: {
         valid: (val: string) => /^.+$/.test(val),
@@ -27,7 +23,7 @@ export default function Validate(rules: RuleValidation, value: string): { isVali
       },
       password: {
         valid: (val: string) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(val),
-        msg: 'Password must contain at least one letter, one number, and be at least 6 characters long.',
+        msg: 'Password required 6+ characters with numbers',
       },
     };
   

@@ -18,7 +18,7 @@
         font-size: 1.2em;
         border: 0;
         border-bottom: 1px solid black;
-        
+        width: 16em;
         &:focus {
             outline: none;
         }
@@ -30,6 +30,7 @@
         margin-top: .5em;
         text-align: left;
         color: red;
+        width: 25em;
     }
 }
 @media(min-width: $tablet_size) {
