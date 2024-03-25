@@ -19,18 +19,20 @@
         border: 0;
         border-bottom: 1px solid black;
         width: 16em;
+        background-color: transparent;
         &:focus {
             outline: none;
         }
     }
 
     .error {
+        position: absolute;
         font-family: $font-medium;
         font-size: .8em;
-        margin-top: .5em;
         text-align: left;
         color: red;
-        width: 25em;
+        width: 15em;
+        top: 7em;
     }
 }
 @media(min-width: $tablet_size) {

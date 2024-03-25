@@ -2,9 +2,9 @@
 
 import { CustomInput } from '@/components/custom-input/custom-input'
 import styles from './page.module.scss'
-import LoginIcon from '@/assets/icons/login.svg'
+import LoginIcon from '@/assets/illustrations/login.svg'
 import { FormEvent, useState } from 'react'
-import { FormType, FormField } from '@/models/form-item'
+import { FormType } from '@/models/form-item'
 import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
 import { REGISTER_ROUTE } from '@/utils/constants/routes-constants'
@@ -32,8 +32,6 @@ export default function Login(props: LoginProps) {
         }    
     })
 
-    const [isFirstTry, setIsFirstTry] = useState<boolean>(false)
-
     const handleOnChange = (e: FormEvent<HTMLInputElement>, name: string) => {
         const target = e.target as HTMLInputElement
         const newVal = target.value
@@ -46,7 +44,6 @@ export default function Login(props: LoginProps) {
 
     const onSubmit = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
-        setIsFirstTry(true)
 
         const newState = {...form}
         let isValid = true;

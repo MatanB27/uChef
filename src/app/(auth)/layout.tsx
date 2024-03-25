@@ -16,8 +16,6 @@ export default function AuthLayout(props: AuthLayoutProps) {
   return (
     <main className={styles['layout']}>
         {children}
-  
-      <div className={styles['bottom-background']}/>
     </main>
   )
 }
