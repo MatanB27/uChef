@@ -1,0 +1,37 @@
+@import '../../styles/imports.scss';
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+   
+    .bottom-background {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: $Bone;
+        height: 2rem;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+}
+
+@media(min-width: $tablet_size) {
+    
+}
+
+@media(min-width: $desktop_size) {
+    .layout {
+        height: 100vh;
+        background-color: $Bone;
+        .bottom-background {
+            display: none;
+        }
+    
+    }
+}

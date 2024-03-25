@@ -1,0 +1,43 @@
+@import '../../styles/imports.scss';
+
+.input {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+
+    label {
+        font-family: $font-bold;
+        font-size: 1.3em;
+        padding: .5em 0;
+        text-align: left;
+    }
+    
+    input {
+        font-family: $font-regular;
+        font-size: 1.2em;
+        border: 0;
+        border-bottom: 1px solid black;
+        width: 16em;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .error {
+        font-family: $font-medium;
+        font-size: .8em;
+        margin-top: .5em;
+        text-align: left;
+        color: red;
+        width: 25em;
+    }
+}
+@media(min-width: $tablet_size) {
+  
+}
+
+@media(min-width: $desktop_size) {
+
+}
+
