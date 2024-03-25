@@ -8,12 +8,10 @@
     overflow: hidden;
     padding: 1rem 2rem;
     text-align: center;
-    background-color: $Bone;
-    .register-img-container {
-        img {
-            width: 80%;
-            height: 80%;
-        }
+
+    img {
+        width: 80%;
+        height: 80%;
     }
     .form {
 
@@ -49,11 +47,10 @@
        backdrop-filter: blur(10px);
        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
        border-radius: 25px;
-        .register-img-container {
-            img {
-                width: 30em;
-                height: 30em;
-            }
+       
+        img {
+            width: 30em;
+            height: 30em;
         }
         .form {
          

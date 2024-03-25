@@ -68,10 +68,7 @@ export default function Login(props: LoginProps) {
     
     return (
         <div className={styles['login-container']}>
-            <div className={styles['login-img-container']}>
-                <img src={LoginIcon.src} alt={'login'}/>
-            </div>
-
+            <img src={LoginIcon.src} alt={'login'}/>
             <form className={styles['form']}>
                 <h1 className={styles['title']}>Login</h1>
                 <div className={styles['inputs-container']}>

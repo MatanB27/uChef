@@ -94,10 +94,7 @@ export default function Register(props: RegisterProps) {
     
     return (
         <div className={styles['register-container']}>
-            <div className={styles['register-img-container']}>
-                <img src={RegisterIcon.src} alt={'register'}/>
-            </div>
-
+            <img src={RegisterIcon.src} alt={'register'}/>
             <form className={styles['form']}>
                 <h1 className={styles['title']}>Register</h1>
                 <div className={styles['inputs-container']}>
