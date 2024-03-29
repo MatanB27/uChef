@@ -32,7 +32,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
     line-height: 1;
-    overflow: hidden;
+    overflow-x: hidden;
+    height: 100vh;
+    margin: 0; 
+    padding: 0;
 }
 ol, ul {
     list-style: none;

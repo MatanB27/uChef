@@ -1,0 +1,78 @@
+@import '../../../styles/imports.scss';
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 1rem 2rem;
+    text-align: center;
+
+    img {
+        width: 80%;
+        height: 80%;
+    }
+    .form {
+
+        .title {
+            font-family: $font-bold;
+            font-size: 2.5em;
+        }
+
+        .custom-btn {
+            margin-top: 2em;
+        }
+
+        .subtext {
+            font-family: $font-regular;
+            font-size: 1em;
+            margin-top: 1em;
+        }
+    }
+}
+
+@media(min-width: $tablet_size) {
+  
+}
+
+@media(min-width: $desktop_size) {
+    .register-container {
+       flex-direction: row;
+       padding-top: 5rem;
+       justify-content: space-evenly; 
+       margin: 2em;
+       width: 60em;
+       background: rgba(255, 255, 255, 0.5);
+       backdrop-filter: blur(10px);
+       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+       border-radius: 25px;
+       
+        img {
+            width: 30em;
+            height: 30em;
+        }
+        .form {
+         
+            .title {
+                font-size: 2em;
+            }
+            .subtext {
+                font-size: .9em;
+            }
+
+            .inputs-container {
+                .row-desktop {
+                    display: flex;
+                    
+                    .custom-input {
+                        input {
+                            width: 7em;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
