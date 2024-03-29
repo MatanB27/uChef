@@ -92,6 +92,7 @@ export default function Register(props: RegisterProps) {
         
     }
     
+    
     return (
         <div className={styles['register-container']}>
             <img src={RegisterIcon.src} alt={'register'}/>
