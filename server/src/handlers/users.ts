@@ -10,11 +10,12 @@ export function getUsers(req: Request, res: Response) {
 
 // api/users/:id
 export function getUserById(req: Request, res: Response) {
-    res.send({user: 'user1234'})
+    res.send({})
 }
 
 export function createUser(req: Request<{}, {}, CreaterUserDto, CreateUserQueryParams>, 
     res: Response<User>) {
+         
     return res.status(201).send(
         {id: 1, firstName: 'matan', lastName: 'baruch', email: 'mmmmm@gmail.com', phone:'0521111111'}
         )
