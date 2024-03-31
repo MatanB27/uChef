@@ -15,8 +15,15 @@ export function getUserById(req: Request, res: Response) {
 
 export function createUser(req: Request<{}, {}, CreaterUserDto, CreateUserQueryParams>, 
     res: Response<User>) {
-         
-    return res.status(201).send(
-        {id: 1, firstName: 'matan', lastName: 'baruch', email: 'mmmmm@gmail.com', phone:'0521111111'}
-        )
+    const { firstName, lastName, email, password, phone } = req.body;
+    const newUser: User = {
+        id: 1,
+        firstName,
+        lastName,
+        email,
+        password,
+        phone
+    }
+
+    return res.status(201).json(newUser)
 }
