@@ -1,6 +1,6 @@
 "use client";
 
-import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, ROOT_ROUTE } from "@/utils/constants/routes-constants"
+import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, SIGNUP_ROUTE, ROOT_ROUTE } from "@/utils/constants/routes-constants"
 import { usePathname } from "next/navigation"
 import styles from './footer.module.scss';
 import ChefHatIcon from '@/assets/icons/chef-hat.svg'
@@ -11,7 +11,7 @@ import clsx from "clsx";
 type FooterProps = {
     footerRoutes: RouteItem[]
 }
-const routesWithoutFooter: string[] = [FORGET_PASSWORD_ROUTE,  LOGIN_ROUTE, REGISTER_ROUTE]
+const routesWithoutFooter: string[] = [FORGET_PASSWORD_ROUTE,  LOGIN_ROUTE, SIGNUP_ROUTE]
 
 // TODO: finish
 export default function Footer(props: FooterProps) {

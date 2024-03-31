@@ -1,6 +1,6 @@
 "use client"
 
-import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "@/utils/constants/routes-constants"
+import { FORGET_PASSWORD_ROUTE, LOGIN_ROUTE, SIGNUP_ROUTE } from "@/utils/constants/routes-constants"
 import { usePathname } from "next/navigation"
 import styles from './header.module.scss'
 import ChefHatIcon from '@/assets/icons/chef-hat.svg'
@@ -27,7 +27,7 @@ type NavDesktopProps = {
 
 const MINIMIZE_POSITION: number = 30;
 
-const routesWithoutHeader: string[] = [FORGET_PASSWORD_ROUTE,  LOGIN_ROUTE, REGISTER_ROUTE]
+const routesWithoutHeader: string[] = [FORGET_PASSWORD_ROUTE,  LOGIN_ROUTE, SIGNUP_ROUTE]
 
 export default function Header(props: HeaderProps) {
     const {

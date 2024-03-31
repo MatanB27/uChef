@@ -7,7 +7,7 @@ import { FormEvent, useState } from 'react'
 import { FormType } from '@/models/form-item'
 import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
-import { REGISTER_ROUTE } from '@/utils/constants/routes-constants'
+import { SIGNUP_ROUTE } from '@/utils/constants/routes-constants'
 import Validate from '@/utils/validation'
 
 type LoginProps = {
@@ -100,7 +100,7 @@ export default function Login(props: LoginProps) {
                     onClick={onSubmit}
                 />
 
-                <p className={styles['subtext']}>Doesn't have account? <Link style={{textDecoration: 'underline'}} href={REGISTER_ROUTE}>Click Here</Link> to register</p>
+                <p className={styles['subtext']}>Doesn't have account? <Link style={{textDecoration: 'underline'}} href={SIGNUP_ROUTE}>Click Here</Link> to signup</p>
             </form>
         </div>
     )

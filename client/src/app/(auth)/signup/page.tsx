@@ -2,7 +2,7 @@
 
 import { CustomInput } from '@/components/custom-input/custom-input'
 import styles from './page.module.scss'
-import RegisterIcon from "@/assets/illustrations/register.svg"
+import SignupIcon from "@/assets/illustrations/signup.svg"
 import { FormEvent, ReactNode, useState } from 'react'
 import { FormType } from '@/models/form-item'
 import CustomButton from '@/components/custom-button/custom-button'
@@ -14,11 +14,11 @@ type RowDesktopProps = {
     children: ReactNode
 }
 
-type RegisterProps = {
+type SignupProps = {
 
 }
 
-export default function Register(props: RegisterProps) {
+export default function Signup(props: SignupProps) {
 
     const [form, setForm] = useState<FormType>({
         firstName: {
@@ -94,10 +94,10 @@ export default function Register(props: RegisterProps) {
     
     
     return (
-        <div className={styles['register-container']}>
-            <img src={RegisterIcon.src} alt={'register'}/>
+        <div className={styles['signup-container']}>
+            <img src={SignupIcon.src} alt={'signup'}/>
             <form className={styles['form']}>
-                <h1 className={styles['title']}>Register</h1>
+                <h1 className={styles['title']}>Signup</h1>
                 <div className={styles['inputs-container']}>
                 
                 <RowDesktop>

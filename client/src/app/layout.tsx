@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Header from '@/components/header/header'
 import Footer from '@/components/footer/footer';
 import './style.css'
-import { LOGIN_ROUTE, REGISTER_ROUTE } from '../utils/constants/routes-constants';
+import { LOGIN_ROUTE, SIGNUP_ROUTE } from '../utils/constants/routes-constants';
 
 export const metadata: Metadata = {
   title: {
@@ -24,8 +24,8 @@ export default function RootLayout({
         route: LOGIN_ROUTE,
     },
     {
-        key: 'Register',
-        route: REGISTER_ROUTE,
+        key: 'Signup',
+        route: SIGNUP_ROUTE,
     }
 ]
   return (
