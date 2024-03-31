@@ -9,6 +9,8 @@ import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
 import { LOGIN_ROUTE } from '@/utils/constants/routes-constants'
 import Validate from '@/utils/validation'
+import { ApiManager } from '@/ApiManager/ApiManager'
+import { User } from '@/models/user'
 
 type RowDesktopProps = {
     children: ReactNode
@@ -86,8 +88,18 @@ export default function Signup(props: SignupProps) {
         setForm(newState)
 
         if(isValid) {
-            console.log('validd....!!! API CALL HERE');
-            
+            const user = {
+                firstName: 'sdfd',
+                lastName: 'sdfds',
+                email: 'sfdsfs@gmail.com',
+                password: 'dfsd',
+                phone: '0521112123',
+            }
+            ApiManager.CreateUser(user).then(newUser => {
+                console.log('newUser: ', newUser);
+            }).catch(e => {
+                console.log('error: ', e);        
+            })
         }
         
     }

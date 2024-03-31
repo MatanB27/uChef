@@ -7,7 +7,7 @@ const iS_DEV: boolean = true
 const BASE_URL_DEV: string = 'http://localhost:8000/'
 const BASE_URL_LIVE: string = 'live' //TODO CHANGE!
 
-class ApiManager {
+export class ApiManager {
 
     private static postRequest = async (url: string, data: any) => {
         const headers = {
@@ -15,6 +15,7 @@ class ApiManager {
         };
         try {
             const res: AxiosResponse = await axios.post(url, data, {headers})
+            console.log('res.data: ', res.data);
             return res.data
         } catch (error) {
             throw error
@@ -22,6 +23,7 @@ class ApiManager {
     }
 
     static CreateUser = (userData: User) => {
+        
         const url = (iS_DEV ? BASE_URL_DEV : BASE_URL_LIVE) + ENDPOINT.CREATE_USER(userData)
         return ApiManager.postRequest(url, userData);
     }
