@@ -14,8 +14,6 @@ export class ApiManager {
         };
         try {
             const res: AxiosResponse = await axios({method, url, data, headers})
-            console.log('res: ', res);
-            
             return res.data
         } catch (error) {
             throw error
@@ -25,7 +23,15 @@ export class ApiManager {
     public static CreateUser = (userData: User) => {
         const endPoint: string = 'api/users' 
         const url = (iS_DEV ? BASE_URL_DEV : BASE_URL_LIVE) + endPoint
-        return ApiManager.postRequest('POST', url, userData);
+        
+        ApiManager.postRequest('POST', url, userData).then(res => {
+            // TODO: add to redux
+            console.log('res: ', res);
+        }).catch(e => {
+            // TODO: incase for error, open popup
+            console.log('e: ', e);
+            
+        })
     }
 
     public static GetUser = () => {
