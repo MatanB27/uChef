@@ -28,7 +28,7 @@ export default function Signup(props: SignupProps) {
             value: '',
             error: '',
             valid: false,
-            rules: [''],
+            rules: ['not_empty'],
         },
         lastName: {
             name: 'lastName',
@@ -90,11 +90,11 @@ export default function Signup(props: SignupProps) {
 
         if(isValid) {
             const user = {
-                firstName: 'sdfd',
-                lastName: 'sdfds',
-                email: 'sfdsfs@gmail.com',
-                password: 'dfsd',
-                phone: '0521112123',
+                firstName: form.firstName.value,
+                lastName: form.lastName.value,
+                email: form.email.value,
+                password: form.password.value,
+                phone: form.phone.value,
             }
             ApiManager.CreateUser(user).then(newUser => {
                 console.log('newUser: ', newUser);
