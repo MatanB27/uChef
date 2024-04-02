@@ -37,8 +37,11 @@ export default function Login(props: LoginProps) {
         const newVal = target.value
         
         const newState: FormType = { ...form };
-        (newState[name]).value = newVal;
+        newState[name].value = newVal;
         
+        let validationObj = Validate(newState[name].rules, newVal)
+        newState[name].valid = validationObj.isValid
+        newState[name].error = validationObj.msg
         setForm(newState)
     }
 

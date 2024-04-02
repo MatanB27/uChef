@@ -65,8 +65,11 @@ export default function Signup(props: SignupProps) {
         const newVal = target.value
         
         const newState: FormType = { ...form };
-        (newState[name]).value = newVal;
-        
+        newState[name].value = newVal;
+
+        let validationObj = Validate(newState[name].rules, newVal)
+        newState[name].valid = validationObj.isValid
+        newState[name].error = validationObj.msg
         setForm(newState)
     }
 
@@ -90,19 +93,13 @@ export default function Signup(props: SignupProps) {
 
         if(isValid) {
             const user = {
-                firstName: '',
+                firstName: form.firstName.value,
                 lastName: form.lastName.value,
                 email: form.email.value,
                 password: form.password.value,
                 phone: form.phone.value,
             }
-            ApiManager.CreateUser(user).then(newUser => {
-                //TODO: add to redux
-                console.log('newUser: ', newUser);
-            }).catch(e => {
-                //TODO: error from the server with popups!
-                console.log('error: ', e.response.data.error);        
-            })
+            ApiManager.CreateUser(user)
         }
         
     }
