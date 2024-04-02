@@ -1,6 +1,5 @@
 
 import { User } from "@/models/user"
-import { ENDPOINT } from "./Endpoint"
 import axios, { AxiosResponse } from "axios"
 
 const iS_DEV: boolean = true
@@ -9,12 +8,12 @@ const BASE_URL_LIVE: string = 'live' //TODO CHANGE!
 
 export class ApiManager {
 
-    private static postRequest = async (url: string, data: any) => {
+    private static postRequest = async (method: string, url: string, data?: any) => {
         const headers = {
             'Content-Type': 'application/json',
         };
         try {
-            const res: AxiosResponse = await axios.post(url, data, {headers})
+            const res: AxiosResponse = await axios({method, url, data, headers})
             console.log('res.data: ', res.data);
             return res.data
         } catch (error) {
@@ -22,9 +21,15 @@ export class ApiManager {
         }
     }
 
-    static CreateUser = (userData: User) => {
-        
-        const url = (iS_DEV ? BASE_URL_DEV : BASE_URL_LIVE) + ENDPOINT.CREATE_USER(userData)
-        return ApiManager.postRequest(url, userData);
+    public static CreateUser = (userData: User) => {
+        const endPoint: string = 'api/users' 
+        const url = (iS_DEV ? BASE_URL_DEV : BASE_URL_LIVE) + endPoint
+        return ApiManager.postRequest('POST', url, userData);
+    }
+
+    public static GetUser = () => {
+        const endPoint: string = 'api/users' 
+        const url = (!iS_DEV ? BASE_URL_DEV : BASE_URL_LIVE) + endPoint
+        return ApiManager.postRequest('GET', url);
     }
 }
