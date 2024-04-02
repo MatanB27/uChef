@@ -28,7 +28,7 @@ export default function Signup(props: SignupProps) {
             value: '',
             error: '',
             valid: false,
-            rules: ['not_empty'],
+            rules: [''],
         },
         lastName: {
             name: 'lastName',
@@ -75,8 +75,9 @@ export default function Signup(props: SignupProps) {
 
         const newState = {...form}
         let isValid = true;
-        for (const key in form) {
+        for (const key in form) {   
             let validationObj = Validate(newState[key].rules, newState[key].value)
+            
             newState[key].valid = validationObj.isValid
             newState[key].error = validationObj.msg
 

@@ -26,7 +26,6 @@ export function createUser(req: Request<{}, {}, CreaterUserDto, CreateUserQueryP
         password,
         phone
     }
-    console.log('checking...');
     
     return res.status(201).json(newUser)
 }

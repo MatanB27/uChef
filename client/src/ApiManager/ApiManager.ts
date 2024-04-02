@@ -14,7 +14,6 @@ export class ApiManager {
         };
         try {
             const res: AxiosResponse = await axios({method, url, data, headers})
-            console.log('res.data: ', res.data);
             return res.data
         } catch (error) {
             throw error

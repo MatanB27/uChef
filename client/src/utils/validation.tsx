@@ -5,6 +5,7 @@ msg: string;
 
 export default function Validate(rules: string[], value: string): { isValid: boolean; msg: string } {
     const Validation: { [key: string]: FieldValidation } = {
+      
       not_empty: {
         valid: (val: string) => /^.+$/.test(val),
         msg: 'Field is empty',
@@ -21,7 +22,7 @@ export default function Validate(rules: string[], value: string): { isValid: boo
         valid: (val: string) => /^[\w.-]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,})+$/.test(val),
         msg: 'Email is not valid',
       },
-      password: {
+      password: { // TODO: change valid 
         valid: (val: string) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(val),
         msg: 'Password required 6+ characters with numbers',
       },
@@ -29,10 +30,15 @@ export default function Validate(rules: string[], value: string): { isValid: boo
   
     let msg = '';
     let isValid = true;
+
+    if (rules.length === 1 && rules[0] === '') {
+      return { isValid: true, msg: '' };
+    }
+
     for (const rule in rules) {
       const fieldValue = rules[rule];
+      
       const field = Validation[fieldValue];
-  
       if (!field.valid(value)) {
         msg = field.msg;
         isValid = false;
