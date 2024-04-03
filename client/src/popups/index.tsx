@@ -25,7 +25,7 @@ export function Popup<T>(props: PopupProps<T>) {
         dispatch(Actions.popup(false))
     }
 
-    if(!popup) { return <></>}
+    if(!popup) { return <></>} // TODO: need to change to make it
     return (
         <div className={styles['popup']}>
             Check here for popup
