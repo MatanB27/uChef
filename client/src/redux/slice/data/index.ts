@@ -1,20 +1,32 @@
-import { createSlice, PayloadAction  } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 let Slices: any[] = [];
-let dataReducers = {};
-let dataActions = {};
+let dataReducers: any = {};
+let dataActions: any = {};
 
 /*----------------------------------------------------------------*/
 
 export const gdSlice = createSlice({
-    name: 'generalData',
+    name: 'gd',
     initialState: false,
     reducers: {
-        setGeneralData: (state, action) => action.payload,
+        setGD: (state, action) => action.payload,
     },
 });
 
 Slices.push(gdSlice);
+
+/*----------------------------------------------------------------*/
+
+export const popupSlice = createSlice({
+    name: 'popup',
+    initialState: false,
+    reducers: {
+        setPopupActive: (state: boolean, action: PayloadAction<boolean>) => action.payload,
+    },
+});
+
+Slices.push(popupSlice);
 
 /*----------------------------------------------------------------*/
 

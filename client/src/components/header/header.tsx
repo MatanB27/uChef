@@ -13,6 +13,7 @@ import { useWindowSize } from "@/hooks/window-size"
 import { RouteItem } from "@/models/route-item"
 import clsx from "clsx"
 import { useScrollPosition } from "@/hooks/scroll-position"
+import { useSelector } from "react-redux"
 
 // TODO: finish
 // ALSO make the header to be shown when scrolling up
@@ -58,7 +59,8 @@ export default function Header(props: HeaderProps) {
     if(!shouldHeaderExists) {
         return <></>
     }
-
+    
+    
     return (
         <>
             <header className={clsx(styles['header'], miniizedHeader ? styles['minimized'] : '')}>
