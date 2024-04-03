@@ -1,12 +1,12 @@
 "use client"
 
-import Link from "next/link";
 import { LOGIN_ROUTE, SIGNUP_ROUTE } from "../utils/constants/routes-constants"; 
 import { Provider, useDispatch, useSelector } from "react-redux";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import store from "@/redux";
 import Actions from "@/redux/actions";
+import { Popup } from "@/popups";
 
 const navRoutes = [
     {
@@ -32,15 +32,15 @@ function Page() {
     
     const dispatch = useDispatch()
     const popup = useSelector((store: any) => store.popup)
-    console.log('wow: ', popup);
     
     const openPopup = () => {
-        dispatch(Actions.setPopupActive(!popup))
+        dispatch(Actions.setPopup(!popup))
     }
 
     //TODO: remove the style when finish
     return (
-        <>
+        <>  
+            <Popup type={'basic'} data={{da: 'asd'}}/>
             <Header headerRoutes={navRoutes}/>
                     <main style={{height: '400px', marginTop: '150px'}}>
                         

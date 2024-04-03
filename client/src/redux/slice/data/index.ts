@@ -22,7 +22,7 @@ export const popupSlice = createSlice({
     name: 'popup',
     initialState: false,
     reducers: {
-        setPopupActive: (state: boolean, action: PayloadAction<boolean>) => action.payload,
+        setPopup: (state: boolean, action: PayloadAction<boolean>) => action.payload,
     },
 });
 
