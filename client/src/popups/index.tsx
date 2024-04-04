@@ -24,7 +24,8 @@ export function Popup<T>(props: PopupProps<T>) {
 
     const popupStyle = {
         transform: popup ? 'translateY(0)' : 'translateY(100%)',
-        transition: 'transform 0.3s ease-in-out'
+        transition: '0.25s ease-in-out',
+        opacity: popup ? '1' : '0',
     };
 
     return (
