@@ -9,6 +9,7 @@ import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
 import { SIGNUP_ROUTE } from '@/utils/constants/routes-constants'
 import Validate from '@/utils/validation'
+import { useDispatch } from 'react-redux'
 
 type LoginProps = {
 
@@ -32,6 +33,7 @@ export default function Login(props: LoginProps) {
         }    
     })
 
+    const dispatch = useDispatch()
     const handleOnChange = (e: FormEvent<HTMLInputElement>, name: string) => {
         const target = e.target as HTMLInputElement
         const newVal = target.value
@@ -102,7 +104,6 @@ export default function Login(props: LoginProps) {
                     type={'submit'}
                     onClick={onSubmit}
                 />
-
                 <p className={styles['subtext']}>Doesn't have account? <Link style={{textDecoration: 'underline'}} href={SIGNUP_ROUTE}>Click Here</Link> to signup</p>
             </form>
         </div>

@@ -1,21 +1,28 @@
+"use client"
+
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './index.module.scss'
 import Actions from '@/redux/actions'
 import CloseIcon from '@/assets/icons/close.svg'
 import clsx from 'clsx'
-interface PopupProps<T> {
-    data: T, //TODO: add specific data (like text, subText, button text... etc...)
+import { PopupBasic } from './basic/popup-basic'
+interface PopupProps {
     type: string,
 }
 
-export function Popup<T>(props: PopupProps<T>) {
+interface PopupDetailsProps {
+    type: string,
+    data: any
+}
+
+
+export function Popup<T>(props: PopupProps) {
     
     const {
         type = 'basic',
-        data,
     } = props
 
-    const popup = useSelector((store: any) => store.popup)
+    const popupData = useSelector((store: any) => store.popup)
     const dispatch = useDispatch()
     
     const onClose = () => {
@@ -23,20 +30,39 @@ export function Popup<T>(props: PopupProps<T>) {
     }
 
     const popupStyle = {
-        transform: popup ? 'translateY(0)' : 'translateY(100%)',
+        transform: popupData ? 'translateY(0)' : 'translateY(100%)',
         transition: '0.25s ease-in-out',
-        opacity: popup ? '1' : '0',
+        opacity: popupData ? '1' : '0',
     };
 
     return (
         <>
-            <button className={clsx(styles['backdrop'], popup ? styles['active'] : styles['not-active'])} onClick={onClose}/>
+            <button className={clsx(styles['backdrop'], popupData ? styles['active'] : styles['not-active'])} onClick={onClose}/>
             <div style={popupStyle} className={styles['popup']}>
                 <button className={styles['close-btn']} onClick={onClose}>
                     <img src={CloseIcon.src}/>
                 </button>
-                Add type here
+                {
+                    popupData && (
+                        <PopupDetails type={type} data={popupData}/>
+                    )
+                }
             </div>
         </>
     )
+}
+
+function PopupDetails(props: PopupDetailsProps) {
+
+    const {type, data} = props
+    
+    switch(type) {
+        case 'basic': 
+            return <PopupBasic data={data}/>
+
+        default: 
+            return <></>
+    }
+
+    return <></>
 }
