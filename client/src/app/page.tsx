@@ -1,7 +1,6 @@
 "use client"
 
 import { LOGIN_ROUTE, SIGNUP_ROUTE } from "../utils/constants/routes-constants"; 
-import { useDispatch, useSelector } from "react-redux";
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 
