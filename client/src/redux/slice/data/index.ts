@@ -20,9 +20,15 @@ Slices.push(gdSlice);
 
 export const popupSlice = createSlice({
     name: 'popup',
-    initialState: false,
+    initialState: [],
     reducers: {
-        setPopup: (state: boolean, action: PayloadAction<boolean>) => action.payload,
+        addPopup: (state: object[], action: PayloadAction<object>) => {
+            state.push(action.payload)
+        },
+        removePopup:(state: object[]) => {
+            state.pop()
+        }
+  
     },
 });
 

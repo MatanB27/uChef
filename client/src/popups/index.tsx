@@ -7,30 +7,26 @@ import CloseIcon from '@/assets/icons/close.svg'
 import clsx from 'clsx'
 import { PopupBasic } from './basic/popup-basic'
 interface PopupProps {
-    type: string,
+    type?: string,
+    data: object[]
 }
-
-interface PopupDetailsProps {
-    type: string,
-    data: any
-}
-
 
 export function Popup<T>(props: PopupProps) {
     
     const {
         type = 'basic',
+        data,
     } = props
 
     const popupData = useSelector((store: any) => store.popup)
     const dispatch = useDispatch()
     
     const onClose = () => {
-        dispatch(Actions.setPopup(false))
+        dispatch(Actions.removePopup())
     }
 
     const popupStyle = {
-        transform: popupData ? 'translateY(0)' : 'translateY(100%)',
+        transform: data ? 'translateY(0)' : 'translateY(100%)',
         transition: '0.25s ease-in-out',
         opacity: popupData ? '1' : '0',
     };
@@ -52,7 +48,7 @@ export function Popup<T>(props: PopupProps) {
     )
 }
 
-function PopupDetails(props: PopupDetailsProps) {
+function PopupDetails(props: PopupProps) {
 
     const {type, data} = props
     
@@ -63,6 +59,4 @@ function PopupDetails(props: PopupDetailsProps) {
         default: 
             return <></>
     }
-
-    return <></>
 }
