@@ -1,6 +1,8 @@
 
 import { User } from "@/models/user"
 import axios, { AxiosResponse } from "axios"
+// import store from "@/redux"
+// import Actions from "@/redux/actions";
 
 const iS_DEV: boolean = true
 const BASE_URL_DEV: string = 'http://localhost:8000/'
@@ -26,10 +28,14 @@ export class ApiManager {
         
         ApiManager.postRequest('POST', url, userData).then(res => {
             // TODO: add to redux
+            // console.log('Actions: ', Actions);
+            // store.dispatch(Actions.addPopup({asdfds: 'sdf'}));
             console.log('res: ', res);
         }).catch(e => {
             // TODO: incase for error, open popup
-            console.log('e: ', e);
+            
+            // store.dispatch(Actions.addPopup({asdfds: 'sdf'}));
+            // console.log('e: ', e);
             
         })
     }

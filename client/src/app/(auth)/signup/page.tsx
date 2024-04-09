@@ -72,7 +72,7 @@ export default function Signup(props: SignupProps) {
         newState[name].error = validationObj.msg
         setForm(newState)
     }
-
+    
     const onSubmit = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
 
