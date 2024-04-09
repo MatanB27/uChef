@@ -32,7 +32,18 @@
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     padding: 2rem 2rem 1rem 2rem;
+    transition: 0.25s ease-in-out;
     z-index: 10;
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &.not-active {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    
     .close-btn {
         img {
             width: 2em;

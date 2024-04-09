@@ -6,6 +6,7 @@ import Actions from '@/redux/actions'
 import CloseIcon from '@/assets/icons/close.svg'
 import clsx from 'clsx'
 import { PopupBasic } from './basic/popup-basic'
+import { useEffect, useState } from 'react'
 interface PopupProps {
     type?: string,
     data: object[]
@@ -18,29 +19,35 @@ export function Popup<T>(props: PopupProps) {
         data,
     } = props
 
-    const popupData = useSelector((store: any) => store.popup)
+    const [backDropAnimation, setBackDropAnimation] = useState<boolean>(false)
+    const [popupAnimation, setPopupAnimation] = useState<boolean>(false)
     const dispatch = useDispatch()
     
+    useEffect(() => {
+        setTimeout(() => {
+            setBackDropAnimation(true)
+            setPopupAnimation(true)
+        }, .1)
+    }, [])
+
     const onClose = () => {
-        dispatch(Actions.removePopup())
+        setBackDropAnimation(false)
+        setPopupAnimation(false)
+        setTimeout(() => {
+            dispatch(Actions.removePopup())
+        }, 250)
     }
-
-    const popupStyle = {
-        transform: data ? 'translateY(0)' : 'translateY(100%)',
-        transition: '0.25s ease-in-out',
-        opacity: popupData ? '1' : '0',
-    };
-
+    
     return (
         <>
-            <button className={clsx(styles['backdrop'], popupData ? styles['active'] : styles['not-active'])} onClick={onClose}/>
-            <div style={popupStyle} className={styles['popup']}>
+            <button className={clsx(styles['backdrop'], backDropAnimation ? styles['active'] : styles['not-active'])} onClick={onClose}/>
+            <div className={clsx(styles['popup'], popupAnimation ? styles['active'] : styles['not-active'])}>
                 <button className={styles['close-btn']} onClick={onClose}>
                     <img src={CloseIcon.src}/>
                 </button>
                 {
-                    popupData && (
-                        <PopupDetails type={type} data={popupData}/>
+                    data && (
+                        <PopupDetails type={type} data={data}/>
                     )
                 }
             </div>

@@ -11,7 +11,6 @@ export function PopupBasic<T>(props: PopupBasicProps<T>) {
         data
     } = props
 
-    console.log('popup basic data: ', data);
     const dispatch = useDispatch()
     const openPopup = () => {
         dispatch(Actions.addPopup({sdfsa: 'asdsada'}))

@@ -27,10 +27,8 @@ export default function Home() {
         dispatch(Actions.addPopup({sdfsa: 'sdf'}))
     }
 
-    console.log('popup: ', popup);
-    
     return (
-      <>  
+      <>
         {
             popup.map((data: any, index: number) => {
                 return (
