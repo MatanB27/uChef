@@ -2,7 +2,6 @@ import { Request, Response } from "express-serve-static-core"
 import { CreaterUserDto } from "../dtos/CreateUser.tdo"
 import { CreateUserQueryParams } from "../types/query-params"
 import { User } from "../types/user-response"
-import { v4 as uuidv4 } from 'uuid';
 
 // api/users
 export function getUsers(req: Request, res: Response) {
@@ -19,7 +18,7 @@ export function createUser(req: Request<{}, {}, CreaterUserDto, CreateUserQueryP
     const { firstName, lastName, email, password, phone } = req.body;
   
     const newUser: User = {
-        id: uuidv4(),
+        id: '1',
         firstName,
         lastName,
         email,

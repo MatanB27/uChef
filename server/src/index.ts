@@ -22,7 +22,7 @@ app.listen(PORT, () => {
 })
 
 const MONGO_URL = process.env.MONGODB_URL
-console.log('process.env.MONGODB_URL: ', process.env.MONGODB_URL);
 
-// mongoose.Promise = Promise
-// mongoose.connect(MONGO_URL)
+mongoose.Promise = Promise
+mongoose.connect(MONGO_URL !== undefined ? MONGO_URL : '')
+mongoose.connection.on('error', (error: Error) => console.log('mongoose error: ', error))
