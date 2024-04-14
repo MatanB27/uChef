@@ -5,9 +5,8 @@ import { getUserBySessionToken } from '../db/users'
 export const isOwner = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { id } = req.params;
-        console.log('id: ',id);
         
-        const currentUserId = get(req, 'identity._id') // TODO: I have a bug here
+        const currentUserId = (get(req, 'identity._id') ?? '').toString()
         
         if(!currentUserId) {
             return res.status(403).json({error: 'Permission denied!'})
@@ -43,3 +42,4 @@ export const isAuthenticated = async (req: Request, res: Response, next: NextFun
         return res.status(400).json({error: e})
     }
 }
+

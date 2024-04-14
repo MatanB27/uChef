@@ -11,7 +11,6 @@ export const login = async (req: Request, res: Response) => {
 
         const user = await getUserByEmail(email).select('+authentication.salt +authentication.password')
         const userData = user[0]
-        console.log('user: ', user);
         
         if(!userData) {
             return res.status(400).json({error: "User doesn't exist."})
@@ -42,7 +41,6 @@ export const signUp = async (req: Request, res: Response) => {
         }
         
         const existingUser = await getUserByEmail(email)
-        console.log('existingUser: ', existingUser);
         
         if(existingUser.length !== 0) {
             return res.status(400).json({error: "User already exists, try a different email."})
