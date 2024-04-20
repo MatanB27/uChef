@@ -9,7 +9,6 @@ import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
 import { LOGIN_ROUTE } from '@/utils/constants/routes-constants'
 import Validate from '@/utils/validation'
-import { ApiManager } from '@/ApiManager/ApiManager'
 import { User } from '@/models/user'
 
 type RowDesktopProps = {
@@ -85,13 +84,13 @@ export default function Signup(props: SignupProps) {
         setForm(newState)
 
         if(isValid) {
-            const user = {
+            const user: User = {
                 firstName: form.firstName.value,
                 lastName: form.lastName.value,
                 email: form.email.value,
                 password: form.password.value,
             }
-            ApiManager.CreateUser(user)
+            
         }
         
     }
