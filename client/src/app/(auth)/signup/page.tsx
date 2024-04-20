@@ -9,7 +9,9 @@ import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
 import { LOGIN_ROUTE } from '@/utils/constants/routes-constants'
 import Validate from '@/utils/validation'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { User } from '@/models/user'
+import { createUser } from '@/api/api'
 
 type RowDesktopProps = {
     children: ReactNode
@@ -52,6 +54,16 @@ export default function Signup(props: SignupProps) {
         }    
     })
 
+    const queryClient = useQueryClient()
+    const {status, error, mutate} = useMutation({
+        mutationFn: createUser, 
+        onSuccess: newUser => {
+            queryClient.setQueryData(['users', newUser.id], newUser)
+            console.log('newUser: ', newUser);
+            
+        }
+    })
+    
     const handleOnChange = (e: FormEvent<HTMLInputElement>, name: string) => {
         const target = e.target as HTMLInputElement
         const newVal = target.value
@@ -90,7 +102,7 @@ export default function Signup(props: SignupProps) {
                 email: form.email.value,
                 password: form.password.value,
             }
-            
+            mutate(user)
         }
         
     }
