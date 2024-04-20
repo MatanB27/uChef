@@ -37,13 +37,6 @@ export default function Signup(props: SignupProps) {
             valid: false,
             rules: ['not_empty'],
         },
-        phone: {
-            name: 'phone',
-            value: '',
-            error: '',
-            valid: false,
-            rules: ['not_empty', 'phone'],
-        },
         email: {
             name: 'email',
             value: '',
@@ -97,7 +90,6 @@ export default function Signup(props: SignupProps) {
                 lastName: form.lastName.value,
                 email: form.email.value,
                 password: form.password.value,
-                phone: form.phone.value,
             }
             ApiManager.CreateUser(user)
         }
@@ -156,16 +148,6 @@ export default function Signup(props: SignupProps) {
                         onChange={handleOnChange}
                     />
                 </RowDesktop>
-                <CustomInput
-                    className={styles['custom-input']}
-                    name={form.phone?.name || ''}
-                    value={form.phone?.value || ''}
-                    error={form.phone?.error || ''}
-                    placeholder={'Phone Number'}
-                    type={'text'}
-                    autoFocus={true}
-                    onChange={handleOnChange}
-                />
                 </div>
                 <CustomButton
                     className={styles['custom-btn']}
