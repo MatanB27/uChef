@@ -27,7 +27,7 @@ export async function apiRequest<T> (config: AxiosRequestConfig) {
 }
 
 export async function createUser(data: {email: string, password: string}) {
-    const endPoint = 'auth/login'
+    const endPoint = 'auth/signup'
     const config = {
         method: 'post',
         url: `${BASE_URL}${endPoint}`,
@@ -38,7 +38,7 @@ export async function createUser(data: {email: string, password: string}) {
 }
 
 export async function loginUser(data: User) {
-    const endPoint = 'auth/signup'
+    const endPoint = 'auth/login'
     const config = {
         method: 'get',
         url: `${BASE_URL}${endPoint}`,
