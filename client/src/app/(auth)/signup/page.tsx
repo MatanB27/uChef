@@ -9,8 +9,9 @@ import CustomButton from '@/components/custom-button/custom-button'
 import Link from 'next/link'
 import { LOGIN_ROUTE } from '@/utils/constants/routes-constants'
 import Validate from '@/utils/validation'
-import { ApiManager } from '@/ApiManager/ApiManager'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { User } from '@/models/user'
+import { createUser } from '@/api/api'
 
 type RowDesktopProps = {
     children: ReactNode
@@ -37,13 +38,6 @@ export default function Signup(props: SignupProps) {
             valid: false,
             rules: ['not_empty'],
         },
-        phone: {
-            name: 'phone',
-            value: '',
-            error: '',
-            valid: false,
-            rules: ['not_empty', 'phone'],
-        },
         email: {
             name: 'email',
             value: '',
@@ -60,6 +54,16 @@ export default function Signup(props: SignupProps) {
         }    
     })
 
+    const queryClient = useQueryClient()
+    const {status, error, mutate} = useMutation({
+        mutationFn: createUser, 
+        onSuccess: newUser => {
+            queryClient.setQueryData(['users', newUser.id], newUser)
+            console.log('newUser: ', newUser);
+            
+        }
+    })
+    
     const handleOnChange = (e: FormEvent<HTMLInputElement>, name: string) => {
         const target = e.target as HTMLInputElement
         const newVal = target.value
@@ -72,7 +76,7 @@ export default function Signup(props: SignupProps) {
         newState[name].error = validationObj.msg
         setForm(newState)
     }
-
+    
     const onSubmit = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault()
 
@@ -92,14 +96,13 @@ export default function Signup(props: SignupProps) {
         setForm(newState)
 
         if(isValid) {
-            const user = {
+            const user: User = {
                 firstName: form.firstName.value,
                 lastName: form.lastName.value,
                 email: form.email.value,
                 password: form.password.value,
-                phone: form.phone.value,
             }
-            ApiManager.CreateUser(user)
+            mutate(user)
         }
         
     }
@@ -156,16 +159,6 @@ export default function Signup(props: SignupProps) {
                         onChange={handleOnChange}
                     />
                 </RowDesktop>
-                <CustomInput
-                    className={styles['custom-input']}
-                    name={form.phone?.name || ''}
-                    value={form.phone?.value || ''}
-                    error={form.phone?.error || ''}
-                    placeholder={'Phone Number'}
-                    type={'text'}
-                    autoFocus={true}
-                    onChange={handleOnChange}
-                />
                 </div>
                 <CustomButton
                     className={styles['custom-btn']}

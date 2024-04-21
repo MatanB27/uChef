@@ -1,8 +1,6 @@
 import { Metadata } from 'next'
-import Header from '@/components/header/header'
-import Footer from '@/components/footer/footer';
 import './style.css'
-import { LOGIN_ROUTE, SIGNUP_ROUTE } from '../utils/constants/routes-constants';
+import MyApp from './_app'
 
 export const metadata: Metadata = {
   title: {
@@ -18,24 +16,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const navRoutes = [
-    {
-        key: 'Login',
-        route: LOGIN_ROUTE,
-    },
-    {
-        key: 'Signup',
-        route: SIGNUP_ROUTE,
-    }
-]
-  return (
 
-    <html lang="en">
-      <body>
-        <Header headerRoutes={navRoutes}/>
-          {children}
-        <Footer footerRoutes={navRoutes}/>
-      </body>
-    </html>
+  return (
+      <html lang="en">
+        <body>
+          
+            <MyApp children={children}/>
+          
+        </body>
+      </html>
   )
 }
