@@ -12,6 +12,7 @@ import Validate from '@/utils/validation'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { User } from '@/models/user'
 import { createUser } from '@/api/api'
+import Loader, { isLoading } from '@/components/loader/loader'
 
 type RowDesktopProps = {
     children: ReactNode
@@ -110,63 +111,66 @@ export default function Signup(props: SignupProps) {
         <div className={styles['signup-container']}>
             <img src={SignupIcon.src} alt={'signup'}/>
             <form className={styles['form']}>
-                <h1 className={styles['title']}>Signup</h1>
-                <div className={styles['inputs-container']}>
-                
-                <RowDesktop>
-                    <CustomInput
-                        className={styles['custom-input']}
-                        name={form.firstName?.name || ''}
-                        value={form.firstName?.value || ''}
-                        error={form.firstName?.error || ''}
-                        placeholder={'First Name'}
-                        type={'text'}
-                        autoFocus={true}
-                        onChange={handleOnChange}
-                    />
-                    <CustomInput
-                        className={styles['custom-input']}
-                        name={form.lastName?.name || ''}
-                        value={form.lastName?.value || ''}
-                        error={form.lastName?.error || ''}
-                        placeholder={'Last Name'}
-                        type={'text'}
-                        autoFocus={true}
-                        onChange={handleOnChange}
-                    />
-                </RowDesktop>
-                <RowDesktop>
-                    <CustomInput
-                        className={styles['custom-input']}
-                        name={form.email?.name || ''}
-                        value={form.email?.value || ''}
-                        error={form.email?.error || ''}
-                        placeholder={'Email'}
-                        type={'email'}
-                        autoFocus={true}
-                        onChange={handleOnChange}
-                    />
-                    <CustomInput
-                        className={styles['custom-input']}
-                        name={form.password?.name || ''}
-                        value={form.password?.value || ''}
-                        error={form.password?.error || ''}
-                        placeholder={'Password'}
-                        type={'password'}
-                        autoFocus={true}
-                        onChange={handleOnChange}
-                    />
-                </RowDesktop>
-                </div>
-                <CustomButton
-                    className={styles['custom-btn']}
-                    text={'SIGN UP'}
-                    type={'submit'}
-                    onClick={onSubmit}
+            <h1 className={styles['title']}>Signup</h1>
+            <div className={styles['inputs-container']}>
+            
+            <RowDesktop>
+                <CustomInput
+                    className={styles['custom-input']}
+                    name={form.firstName?.name || ''}
+                    value={form.firstName?.value || ''}
+                    error={form.firstName?.error || ''}
+                    placeholder={'First Name'}
+                    type={'text'}
+                    autoFocus={true}
+                    onChange={handleOnChange}
                 />
-
-                <p className={styles['subtext']}>Already have an account? <Link style={{textDecoration: 'underline'}} href={LOGIN_ROUTE}>Click Here</Link> to login</p>
-            </form>
+                <CustomInput
+                    className={styles['custom-input']}
+                    name={form.lastName?.name || ''}
+                    value={form.lastName?.value || ''}
+                    error={form.lastName?.error || ''}
+                    placeholder={'Last Name'}
+                    type={'text'}
+                    autoFocus={true}
+                    onChange={handleOnChange}
+                />
+            </RowDesktop>
+            <RowDesktop>
+                <CustomInput
+                    className={styles['custom-input']}
+                    name={form.email?.name || ''}
+                    value={form.email?.value || ''}
+                    error={form.email?.error || ''}
+                    placeholder={'Email'}
+                    type={'email'}
+                    autoFocus={true}
+                    onChange={handleOnChange}
+                />
+                <CustomInput
+                    className={styles['custom-input']}
+                    name={form.password?.name || ''}
+                    value={form.password?.value || ''}
+                    error={form.password?.error || ''}
+                    placeholder={'Password'}
+                    type={'password'}
+                    autoFocus={true}
+                    onChange={handleOnChange}
+                />
+            </RowDesktop>
+            </div>
+            {
+                isLoading(status) && <Loader/>
+            }
+            <CustomButton
+                className={styles['custom-btn']}
+                type={'submit'}
+                onClick={onSubmit}
+            >
+                {'SIGN UP'}
+            </CustomButton>
+            <p className={styles['subtext']}>Already have an account? <Link style={{textDecoration: 'underline'}} href={LOGIN_ROUTE}>Click Here</Link> to login</p>
+        </form>       
         </div>
     )
 }

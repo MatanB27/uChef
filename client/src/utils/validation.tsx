@@ -23,8 +23,8 @@ export default function Validate(rules: string[], value: string): { isValid: boo
         msg: 'Email is not valid',
       },
       password: { // TODO: change valid 
-        valid: (val: string) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(val),
-        msg: 'Password required 6+ characters with numbers',
+        valid: (val: string) => /^[^\s]{6,}$/.test(val),
+        msg: 'Password required 6 or more characters',
       },
     };
   

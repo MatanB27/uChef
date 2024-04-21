@@ -4,7 +4,7 @@ import { BUTTON_BUTTON, BUTTON_RESET, BUTTON_SUBMIT } from '@/utils/constants/bu
 
 type CustomButtonProps = {
     className: string,
-    text: string,
+    children: React.ReactNode,
     type: typeof BUTTON_SUBMIT | typeof BUTTON_RESET | typeof BUTTON_BUTTON,
     onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
 }
@@ -13,7 +13,7 @@ type CustomButtonProps = {
 export default function CustomButton(props: CustomButtonProps) {
 
     const {
-        text = '',
+        children = '',
         className = '',
         type = 'button',
         onClick = () => {}
@@ -24,7 +24,7 @@ export default function CustomButton(props: CustomButtonProps) {
             className={clsx(styles['btn-container'] ,className)}
             type={type}
         >
-            {text}
+            {children}
         </button>
     )
 } 
