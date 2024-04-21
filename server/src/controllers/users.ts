@@ -30,7 +30,6 @@ export const getAllUsers = async (req: Request, res: Response) => {
         }
 
         const user = await getUserById(id)
-        console.log('user: ', user);
         
         if(user) {
             user.firstName = firstName
