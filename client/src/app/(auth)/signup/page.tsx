@@ -15,6 +15,7 @@ import { createUser } from '@/api/api'
 import Loader, { isLoading } from '@/components/loader/loader'
 import { useDispatch } from 'react-redux'
 import Actions from '@/redux/actions'
+import useCustomMutation from '@/hooks/useCustomMutation'
 
 type RowDesktopProps = {
     children: ReactNode
@@ -59,17 +60,11 @@ export default function Signup(props: SignupProps) {
 
     const queryClient = useQueryClient()
     const dispatch = useDispatch()
-    const {status, error, mutate} = useMutation({
-        mutationFn: createUser, 
-        onSuccess: newUser => {
-            queryClient.setQueryData(['users', newUser.id], newUser)
-        },
-        onError: (e) => {
-            const errorMessage = e.message;
-            console.log(errorMessage);
-            dispatch(Actions.addPopup({sdfsa: 'sdf'}))
-        }, 
-    })
+
+    const onSuccess = (newUser: User) => {
+        queryClient.setQueryData(['users', newUser.id], newUser)
+    }
+    const {status, error, mutate} = useCustomMutation(createUser, onSuccess)
     
     const handleOnChange = (e: FormEvent<HTMLInputElement>, name: string) => {
         const target = e.target as HTMLInputElement
