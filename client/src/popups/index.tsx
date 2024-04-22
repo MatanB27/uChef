@@ -22,7 +22,7 @@ export function Popup<T>(props: PopupProps) {
     const [backDropAnimation, setBackDropAnimation] = useState<boolean>(false)
     const [popupAnimation, setPopupAnimation] = useState<boolean>(false)
     const dispatch = useDispatch()
-    //TODO: Need to fix popup animatedIn in mobile!
+    
     useEffect(() => {
         setTimeout(() => {
             setBackDropAnimation(true)
