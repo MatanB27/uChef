@@ -13,8 +13,6 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { User } from '@/models/user'
 import { createUser } from '@/api/api'
 import Loader, { isLoading } from '@/components/loader/loader'
-import { useDispatch } from 'react-redux'
-import Actions from '@/redux/actions'
 import useCustomMutation from '@/hooks/useCustomMutation'
 
 type RowDesktopProps = {
@@ -59,7 +57,6 @@ export default function Signup(props: SignupProps) {
     })
 
     const queryClient = useQueryClient()
-    const dispatch = useDispatch()
 
     const onSuccess = (newUser: User) => {
         queryClient.setQueryData(['users', newUser.id], newUser)
