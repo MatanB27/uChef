@@ -13,6 +13,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { User } from '@/models/user'
 import { createUser } from '@/api/api'
 import Loader, { isLoading } from '@/components/loader/loader'
+import { useDispatch } from 'react-redux'
+import Actions from '@/redux/actions'
 
 type RowDesktopProps = {
     children: ReactNode
@@ -56,6 +58,7 @@ export default function Signup(props: SignupProps) {
     })
 
     const queryClient = useQueryClient()
+    const dispatch = useDispatch()
     const {status, error, mutate} = useMutation({
         mutationFn: createUser, 
         onSuccess: newUser => {
@@ -63,6 +66,8 @@ export default function Signup(props: SignupProps) {
         },
         onError: (e) => {
             const errorMessage = e.message;
+            console.log(errorMessage);
+            dispatch(Actions.addPopup({sdfsa: 'sdf'}))
         }, 
     })
     
