@@ -60,7 +60,10 @@ export default function Signup(props: SignupProps) {
         mutationFn: createUser, 
         onSuccess: newUser => {
             queryClient.setQueryData(['users', newUser.id], newUser)
-        }
+        },
+        onError: (e) => {
+            const errorMessage = e.message;
+        }, 
     })
     
     const handleOnChange = (e: FormEvent<HTMLInputElement>, name: string) => {
