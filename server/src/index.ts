@@ -4,8 +4,9 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import router from './router';
+import { errorHandler } from './middleware/error-handler';
 
-const PORT = 8000;
+const PORT = 5000;
 const app = express()
 require('dotenv').config({ path: `.env.local` })
 
@@ -19,6 +20,8 @@ app.listen(PORT, () => {
 })
 
 const MONGO_URL = process.env.MONGODB_URL
+
+app.use(errorHandler)
 
 mongoose.Promise = Promise
 mongoose.connect(MONGO_URL !== undefined ? MONGO_URL : '')

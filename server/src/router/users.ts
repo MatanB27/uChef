@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { deleteUser, getAllUsers, updateUser } from "../controllers/users";
-import { isAuthenticated, isOwner } from "../middleware";
+import { isAuthenticated, isOwner } from "../middleware/authentication";
 
 export default (router: Router) => {
     router.get('/users', isAuthenticated, getAllUsers)
