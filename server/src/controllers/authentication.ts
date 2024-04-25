@@ -43,7 +43,8 @@ export const signUp = async (req: Request, res: Response) => {
         const existingUser = await getUserByEmail(email)
         
         if(existingUser.length !== 0) {
-            return res.status(400).json({error: "User already exists, try a different email."})
+            // TODO: Check why the text is not changing
+            return res.status(400).json({error: "????User already exists, try a different email."})
         }
 
         const salt = random()

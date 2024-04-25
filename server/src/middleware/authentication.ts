@@ -1,6 +1,7 @@
 import {NextFunction, Request, Response} from 'express'
 import {get, merge} from 'lodash'
 import { getUserBySessionToken } from '../db/users'
+import Forbidden from '../errors/forbidden';
 
 export const isOwner = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -9,7 +10,7 @@ export const isOwner = async (req: Request, res: Response, next: NextFunction) =
         const currentUserId = (get(req, 'identity._id') ?? '').toString()
         
         if(!currentUserId) {
-            return res.status(403).json({error: 'Permission denied!'})
+            throw new Forbidden()
         }
 
         if(currentUserId !== id) {
